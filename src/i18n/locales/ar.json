@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "WealthLens"
+  },
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "assets": "الأصول",
+    "history": "السجل",
+    "settings": "الإعدادات",
+    "openMenu": "فتح القائمة",
+    "navigation": "التنقل",
+    "refreshPrices": "تحديث الأسعار"
+  },
+  "dashboard": {
+    "totalNetWorth": "إجمالي صافي الثروة",
+    "todaysChange": "تغيّر اليوم",
+    "netWorthTrend": "اتجاه صافي الثروة",
+    "noSnapshotData": "لا توجد بيانات بعد. يتم تسجيل اللقطات يومياً.",
+    "netWorth": "صافي الثروة",
+    "assetAllocation": "توزيع الأصول",
+    "noAssetsToDisplay": "لا توجد أصول لعرضها.",
+    "topAssets": "أبرز الأصول",
+    "noAssetsYet": "لا توجد أصول بعد. أضف أول أصل للبدء.",
+    "loading": "جارٍ التحميل..."
+  },
+  "assetTypes": {
+    "us_stock": "سهم أمريكي",
+    "cn_stock": "سهم صيني",
+    "etf": "ETF",
+    "crypto": "عملة رقمية",
+    "gold": "ذهب",
+    "forex": "عملات أجنبية",
+    "real_estate": "عقار",
+    "vehicle": "مركبة",
+    "cash": "نقد",
+    "other": "أخرى"
+  },
+  "assetTypesPlural": {
+    "us_stock": "أسهم أمريكية",
+    "cn_stock": "أسهم صينية",
+    "etf": "ETF",
+    "crypto": "عملات رقمية",
+    "gold": "ذهب",
+    "forex": "عملات أجنبية",
+    "real_estate": "عقارات",
+    "vehicle": "مركبات",
+    "cash": "نقد",
+    "other": "أخرى"
+  },
+  "assetList": {
+    "noAssetsYet": "لا توجد أصول بعد",
+    "addFirstAsset": "أضف أول أصل لبدء تتبع ثروتك."
+  },
+  "assetForm": {
+    "editAsset": "تعديل الأصل",
+    "addAsset": "إضافة أصل",
+    "editDescription": "قم بتحديث بيانات الأصل.",
+    "addDescription": "أضف أصلاً جديداً للتتبع.",
+    "name": "الاسم",
+    "namePlaceholder": "مثال: Apple Inc.",
+    "nameRequired": "الاسم مطلوب",
+    "type": "النوع",
+    "ticker": "الرمز",
+    "tickerPlaceholder": "مثال: AAPL",
+    "quantity": "الكمية",
+    "quantityPlaceholder": "مثال: 100",
+    "quantityError": "يجب أن تكون الكمية رقماً موجباً",
+    "costPrice": "سعر التكلفة",
+    "optional": "اختياري",
+    "costPriceError": "يجب أن يكون سعر التكلفة رقماً صحيحاً",
+    "costCurrency": "عملة التكلفة",
+    "manualPrice": "السعر اليدوي",
+    "manualPricePlaceholder": "القيمة الحالية لكل وحدة",
+    "manualPriceError": "يجب أن يكون السعر اليدوي رقماً صحيحاً",
+    "notes": "ملاحظات",
+    "notesPlaceholder": "ملاحظات اختيارية...",
+    "cancel": "إلغاء",
+    "saveChanges": "حفظ التغييرات"
+  },
+  "assetCard": {
+    "editAsset": "تعديل الأصل",
+    "deleteAsset": "حذف الأصل",
+    "qty": "الكمية:",
+    "manualUpdated": "يدوي — آخر تحديث {{time}}"
+  },
+  "assets": {
+    "title": "الأصول",
+    "addAsset": "إضافة أصل",
+    "loading": "جارٍ تحميل الأصول...",
+    "deleteTitle": "حذف الأصل",
+    "deleteConfirm": "هل أنت متأكد من حذف \"{{name}}\"؟ لا يمكن التراجع عن هذا الإجراء.",
+    "cancel": "إلغاء",
+    "delete": "حذف"
+  },
+  "history": {
+    "title": "السجل",
+    "exportCSV": "تصدير CSV",
+    "exportJSON": "تصدير JSON",
+    "importJSON": "استيراد JSON",
+    "loading": "جارٍ تحميل السجل...",
+    "noSnapshots": "لا توجد لقطات بعد",
+    "snapshotsAutoCreated": "يتم إنشاء اللقطات تلقائياً في نهاية كل يوم.",
+    "date": "التاريخ",
+    "netWorth": "صافي الثروة",
+    "dailyChange": "التغيّر اليومي"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "preferences": "التفضيلات",
+    "baseCurrency": "العملة الأساسية",
+    "autoRefresh": "فترة التحديث التلقائي",
+    "refreshOff": "إيقاف",
+    "refresh5min": "5 دقائق",
+    "refresh15min": "15 دقيقة",
+    "refresh30min": "30 دقيقة",
+    "refresh1hr": "ساعة واحدة",
+    "theme": "المظهر",
+    "themeDark": "داكن",
+    "themeLight": "فاتح",
+    "themeSystem": "النظام",
+    "snapshotTime": "وقت اللقطة",
+    "language": "اللغة",
+    "dataManagement": "إدارة البيانات",
+    "exportAll": "تصدير جميع البيانات",
+    "importData": "استيراد البيانات",
+    "clearAll": "مسح جميع البيانات",
+    "clearWarning": "سيؤدي هذا إلى حذف جميع الأصول واللقطات والإعدادات نهائياً.",
+    "clearConfirmTitle": "مسح جميع البيانات",
+    "clearConfirmMessage": "هل أنت متأكد من حذف جميع البيانات؟ سيتم إزالة جميع الأصول واللقطات والإعدادات. لا يمكن التراجع عن هذا الإجراء.",
+    "cancel": "إلغاء",
+    "deleteEverything": "حذف كل شيء",
+    "loading": "جارٍ تحميل الإعدادات..."
+  },
+  "common": {
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "delete": "حذف",
+    "loading": "جارٍ التحميل..."
+  }
+}

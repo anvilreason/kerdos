@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "WealthLens"
+  },
+  "nav": {
+    "dashboard": "Dashibodi",
+    "assets": "Mali",
+    "history": "Historia",
+    "settings": "Mipangilio",
+    "openMenu": "Fungua menyu",
+    "navigation": "Urambazaji",
+    "refreshPrices": "Sasisha bei"
+  },
+  "dashboard": {
+    "totalNetWorth": "Jumla ya Utajiri Halisi",
+    "todaysChange": "Mabadiliko ya Leo",
+    "netWorthTrend": "Mwelekeo wa Utajiri Halisi",
+    "noSnapshotData": "Bado hakuna data ya picha. Picha zinarekodi kila siku.",
+    "netWorth": "Utajiri Halisi",
+    "assetAllocation": "Ugawaji wa Mali",
+    "noAssetsToDisplay": "Hakuna mali ya kuonyesha.",
+    "topAssets": "Mali Kuu",
+    "noAssetsYet": "Bado hakuna mali. Ongeza mali yako ya kwanza kuanza.",
+    "loading": "Inapakia..."
+  },
+  "assetTypes": {
+    "us_stock": "Hisa za Marekani",
+    "cn_stock": "Hisa za China",
+    "etf": "ETF",
+    "crypto": "Sarafu za Kidijitali",
+    "gold": "Dhahabu",
+    "forex": "Forex",
+    "real_estate": "Mali Isiyohamishika",
+    "vehicle": "Gari",
+    "cash": "Taslimu",
+    "other": "Nyingine"
+  },
+  "assetTypesPlural": {
+    "us_stock": "Hisa za Marekani",
+    "cn_stock": "Hisa za China",
+    "etf": "ETF",
+    "crypto": "Sarafu za Kidijitali",
+    "gold": "Dhahabu",
+    "forex": "Forex",
+    "real_estate": "Mali Isiyohamishika",
+    "vehicle": "Magari",
+    "cash": "Taslimu",
+    "other": "Nyingine"
+  },
+  "assetList": {
+    "noAssetsYet": "Bado hakuna mali",
+    "addFirstAsset": "Ongeza mali yako ya kwanza kuanza kufuatilia utajiri wako."
+  },
+  "assetForm": {
+    "editAsset": "Hariri Mali",
+    "addAsset": "Ongeza Mali",
+    "editDescription": "Sasisha maelezo ya mali yako.",
+    "addDescription": "Ongeza mali mpya kufuatilia.",
+    "name": "Jina",
+    "namePlaceholder": "mf. Apple Inc.",
+    "nameRequired": "Jina linahitajika",
+    "type": "Aina",
+    "ticker": "Alama ya Hisa",
+    "tickerPlaceholder": "mf. AAPL",
+    "quantity": "Kiasi",
+    "quantityPlaceholder": "mf. 100",
+    "quantityError": "Kiasi lazima kiwe nambari chanya",
+    "costPrice": "Bei ya Ununuzi",
+    "optional": "Hiari",
+    "costPriceError": "Bei ya ununuzi lazima iwe nambari halali",
+    "costCurrency": "Sarafu ya Gharama",
+    "manualPrice": "Bei ya Mikono",
+    "manualPricePlaceholder": "Thamani ya sasa kwa kila kipimo",
+    "manualPriceError": "Bei ya mikono lazima iwe nambari halali",
+    "notes": "Maelezo",
+    "notesPlaceholder": "Maelezo ya hiari...",
+    "cancel": "Ghairi",
+    "saveChanges": "Hifadhi Mabadiliko"
+  },
+  "assetCard": {
+    "editAsset": "Hariri mali",
+    "deleteAsset": "Futa mali",
+    "qty": "Idadi:",
+    "manualUpdated": "Mikono - imesasishwa {{time}}"
+  },
+  "assets": {
+    "title": "Mali",
+    "addAsset": "Ongeza Mali",
+    "loading": "Inapakia mali...",
+    "deleteTitle": "Futa Mali",
+    "deleteConfirm": "Je, una uhakika unataka kufuta \"{{name}}\"? Kitendo hiki hakiwezi kutendwa upya.",
+    "cancel": "Ghairi",
+    "delete": "Futa"
+  },
+  "history": {
+    "title": "Historia",
+    "exportCSV": "Hamisha CSV",
+    "exportJSON": "Hamisha JSON",
+    "importJSON": "Ingiza JSON",
+    "loading": "Inapakia historia...",
+    "noSnapshots": "Bado hakuna picha",
+    "snapshotsAutoCreated": "Picha zinaundwa kiotomatiki mwishoni mwa kila siku.",
+    "date": "Tarehe",
+    "netWorth": "Utajiri Halisi",
+    "dailyChange": "Mabadiliko ya Kila Siku"
+  },
+  "settings": {
+    "title": "Mipangilio",
+    "preferences": "Mapendeleo",
+    "baseCurrency": "Sarafu ya Msingi",
+    "autoRefresh": "Muda wa Kusasisha Kiotomatiki",
+    "refreshOff": "Zima",
+    "refresh5min": "Dakika 5",
+    "refresh15min": "Dakika 15",
+    "refresh30min": "Dakika 30",
+    "refresh1hr": "Saa 1",
+    "theme": "Mandhari",
+    "themeDark": "Giza",
+    "themeLight": "Mwanga",
+    "themeSystem": "Mfumo",
+    "snapshotTime": "Wakati wa Picha",
+    "language": "Lugha",
+    "dataManagement": "Usimamizi wa Data",
+    "exportAll": "Hamisha Data Zote",
+    "importData": "Ingiza Data",
+    "clearAll": "Futa Data Zote",
+    "clearWarning": "Hii itafuta mali zako zote, picha, na mipangilio milele.",
+    "clearConfirmTitle": "Futa Data Zote",
+    "clearConfirmMessage": "Je, una uhakika unataka kufuta data zote? Hii itaondoa mali zote, picha, na mipangilio. Kitendo hiki hakiwezi kutendwa upya.",
+    "cancel": "Ghairi",
+    "deleteEverything": "Futa Kila Kitu",
+    "loading": "Inapakia mipangilio..."
+  },
+  "common": {
+    "cancel": "Ghairi",
+    "save": "Hifadhi",
+    "delete": "Futa",
+    "loading": "Inapakia..."
+  }
+}

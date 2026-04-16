@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "WealthLens"
+  },
+  "nav": {
+    "dashboard": "Übersicht",
+    "assets": "Vermögenswerte",
+    "history": "Verlauf",
+    "settings": "Einstellungen",
+    "openMenu": "Menü öffnen",
+    "navigation": "Navigation",
+    "refreshPrices": "Preise aktualisieren"
+  },
+  "dashboard": {
+    "totalNetWorth": "Gesamtvermögen",
+    "todaysChange": "Heutige Änderung",
+    "netWorthTrend": "Vermögensentwicklung",
+    "noSnapshotData": "Noch keine Daten vorhanden. Momentaufnahmen werden täglich erstellt.",
+    "netWorth": "Nettovermögen",
+    "assetAllocation": "Vermögensverteilung",
+    "noAssetsToDisplay": "Keine Vermögenswerte vorhanden.",
+    "topAssets": "Top-Vermögenswerte",
+    "noAssetsYet": "Noch keine Vermögenswerte. Fügen Sie Ihren ersten Vermögenswert hinzu.",
+    "loading": "Laden..."
+  },
+  "assetTypes": {
+    "us_stock": "US-Aktie",
+    "cn_stock": "CN-Aktie",
+    "etf": "ETF",
+    "crypto": "Krypto",
+    "gold": "Gold",
+    "forex": "Devisen",
+    "real_estate": "Immobilie",
+    "vehicle": "Fahrzeug",
+    "cash": "Bargeld",
+    "other": "Sonstiges"
+  },
+  "assetTypesPlural": {
+    "us_stock": "US-Aktien",
+    "cn_stock": "CN-Aktien",
+    "etf": "ETFs",
+    "crypto": "Krypto",
+    "gold": "Gold",
+    "forex": "Devisen",
+    "real_estate": "Immobilien",
+    "vehicle": "Fahrzeuge",
+    "cash": "Bargeld",
+    "other": "Sonstiges"
+  },
+  "assetList": {
+    "noAssetsYet": "Noch keine Vermögenswerte",
+    "addFirstAsset": "Fügen Sie Ihren ersten Vermögenswert hinzu, um Ihr Vermögen zu verfolgen."
+  },
+  "assetForm": {
+    "editAsset": "Vermögenswert bearbeiten",
+    "addAsset": "Vermögenswert hinzufügen",
+    "editDescription": "Aktualisieren Sie die Details Ihres Vermögenswerts.",
+    "addDescription": "Neuen Vermögenswert zur Verfolgung hinzufügen.",
+    "name": "Name",
+    "namePlaceholder": "z. B. Apple Inc.",
+    "nameRequired": "Name ist erforderlich",
+    "type": "Typ",
+    "ticker": "Ticker",
+    "tickerPlaceholder": "z. B. AAPL",
+    "quantity": "Menge",
+    "quantityPlaceholder": "z. B. 100",
+    "quantityError": "Menge muss eine positive Zahl sein",
+    "costPrice": "Kaufpreis",
+    "optional": "Optional",
+    "costPriceError": "Kaufpreis muss eine gültige Zahl sein",
+    "costCurrency": "Kaufwährung",
+    "manualPrice": "Manueller Preis",
+    "manualPricePlaceholder": "Aktueller Wert pro Einheit",
+    "manualPriceError": "Manueller Preis muss eine gültige Zahl sein",
+    "notes": "Notizen",
+    "notesPlaceholder": "Optionale Notizen...",
+    "cancel": "Abbrechen",
+    "saveChanges": "Änderungen speichern"
+  },
+  "assetCard": {
+    "editAsset": "Vermögenswert bearbeiten",
+    "deleteAsset": "Vermögenswert löschen",
+    "qty": "Menge:",
+    "manualUpdated": "Manuell — aktualisiert {{time}}"
+  },
+  "assets": {
+    "title": "Vermögenswerte",
+    "addAsset": "Vermögenswert hinzufügen",
+    "loading": "Vermögenswerte werden geladen...",
+    "deleteTitle": "Vermögenswert löschen",
+    "deleteConfirm": "Möchten Sie \"{{name}}\" wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden.",
+    "cancel": "Abbrechen",
+    "delete": "Löschen"
+  },
+  "history": {
+    "title": "Verlauf",
+    "exportCSV": "CSV exportieren",
+    "exportJSON": "JSON exportieren",
+    "importJSON": "JSON importieren",
+    "loading": "Verlauf wird geladen...",
+    "noSnapshots": "Noch keine Momentaufnahmen",
+    "snapshotsAutoCreated": "Momentaufnahmen werden automatisch am Ende jedes Tages erstellt.",
+    "date": "Datum",
+    "netWorth": "Nettovermögen",
+    "dailyChange": "Tägliche Änderung"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "preferences": "Präferenzen",
+    "baseCurrency": "Basiswährung",
+    "autoRefresh": "Automatisches Aktualisierungsintervall",
+    "refreshOff": "Aus",
+    "refresh5min": "5 Minuten",
+    "refresh15min": "15 Minuten",
+    "refresh30min": "30 Minuten",
+    "refresh1hr": "1 Stunde",
+    "theme": "Design",
+    "themeDark": "Dunkel",
+    "themeLight": "Hell",
+    "themeSystem": "System",
+    "snapshotTime": "Zeitpunkt der Momentaufnahme",
+    "language": "Sprache",
+    "dataManagement": "Datenverwaltung",
+    "exportAll": "Alle Daten exportieren",
+    "importData": "Daten importieren",
+    "clearAll": "Alle Daten löschen",
+    "clearWarning": "Dies löscht dauerhaft alle Ihre Vermögenswerte, Momentaufnahmen und Einstellungen.",
+    "clearConfirmTitle": "Alle Daten löschen",
+    "clearConfirmMessage": "Möchten Sie wirklich alle Daten löschen? Alle Vermögenswerte, Momentaufnahmen und Einstellungen werden entfernt. Diese Aktion kann nicht rückgängig gemacht werden.",
+    "cancel": "Abbrechen",
+    "deleteEverything": "Alles löschen",
+    "loading": "Einstellungen werden geladen..."
+  },
+  "common": {
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "delete": "Löschen",
+    "loading": "Laden..."
+  }
+}

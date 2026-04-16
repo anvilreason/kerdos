@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "WealthLens"
+  },
+  "nav": {
+    "dashboard": "Dasbor",
+    "assets": "Aset",
+    "history": "Riwayat",
+    "settings": "Pengaturan",
+    "openMenu": "Buka menu",
+    "navigation": "Navigasi",
+    "refreshPrices": "Perbarui harga"
+  },
+  "dashboard": {
+    "totalNetWorth": "Total Kekayaan Bersih",
+    "todaysChange": "Perubahan Hari Ini",
+    "netWorthTrend": "Tren Kekayaan Bersih",
+    "noSnapshotData": "Belum ada data snapshot. Snapshot direkam setiap hari.",
+    "netWorth": "Kekayaan Bersih",
+    "assetAllocation": "Alokasi Aset",
+    "noAssetsToDisplay": "Tidak ada aset untuk ditampilkan.",
+    "topAssets": "Aset Teratas",
+    "noAssetsYet": "Belum ada aset. Tambahkan aset pertama Anda untuk memulai.",
+    "loading": "Memuat..."
+  },
+  "assetTypes": {
+    "us_stock": "Saham AS",
+    "cn_stock": "Saham CN",
+    "etf": "ETF",
+    "crypto": "Kripto",
+    "gold": "Emas",
+    "forex": "Valas",
+    "real_estate": "Properti",
+    "vehicle": "Kendaraan",
+    "cash": "Tunai",
+    "other": "Lainnya"
+  },
+  "assetTypesPlural": {
+    "us_stock": "Saham AS",
+    "cn_stock": "Saham CN",
+    "etf": "ETF",
+    "crypto": "Kripto",
+    "gold": "Emas",
+    "forex": "Valas",
+    "real_estate": "Properti",
+    "vehicle": "Kendaraan",
+    "cash": "Tunai",
+    "other": "Lainnya"
+  },
+  "assetList": {
+    "noAssetsYet": "Belum ada aset",
+    "addFirstAsset": "Tambahkan aset pertama Anda untuk mulai melacak kekayaan."
+  },
+  "assetForm": {
+    "editAsset": "Edit Aset",
+    "addAsset": "Tambah Aset",
+    "editDescription": "Perbarui detail aset Anda.",
+    "addDescription": "Tambahkan aset baru untuk dilacak.",
+    "name": "Nama",
+    "namePlaceholder": "cth. Apple Inc.",
+    "nameRequired": "Nama wajib diisi",
+    "type": "Jenis",
+    "ticker": "Kode Saham",
+    "tickerPlaceholder": "cth. AAPL",
+    "quantity": "Jumlah",
+    "quantityPlaceholder": "cth. 100",
+    "quantityError": "Jumlah harus berupa angka positif",
+    "costPrice": "Harga Perolehan",
+    "optional": "Opsional",
+    "costPriceError": "Harga perolehan harus berupa angka yang valid",
+    "costCurrency": "Mata Uang Biaya",
+    "manualPrice": "Harga Manual",
+    "manualPricePlaceholder": "Nilai saat ini per unit",
+    "manualPriceError": "Harga manual harus berupa angka yang valid",
+    "notes": "Catatan",
+    "notesPlaceholder": "Catatan opsional...",
+    "cancel": "Batal",
+    "saveChanges": "Simpan Perubahan"
+  },
+  "assetCard": {
+    "editAsset": "Edit aset",
+    "deleteAsset": "Hapus aset",
+    "qty": "Jml:",
+    "manualUpdated": "Manual - diperbarui {{time}}"
+  },
+  "assets": {
+    "title": "Aset",
+    "addAsset": "Tambah Aset",
+    "loading": "Memuat aset...",
+    "deleteTitle": "Hapus Aset",
+    "deleteConfirm": "Apakah Anda yakin ingin menghapus \"{{name}}\"? Tindakan ini tidak dapat dibatalkan.",
+    "cancel": "Batal",
+    "delete": "Hapus"
+  },
+  "history": {
+    "title": "Riwayat",
+    "exportCSV": "Ekspor CSV",
+    "exportJSON": "Ekspor JSON",
+    "importJSON": "Impor JSON",
+    "loading": "Memuat riwayat...",
+    "noSnapshots": "Belum ada snapshot",
+    "snapshotsAutoCreated": "Snapshot dibuat secara otomatis di akhir setiap hari.",
+    "date": "Tanggal",
+    "netWorth": "Kekayaan Bersih",
+    "dailyChange": "Perubahan Harian"
+  },
+  "settings": {
+    "title": "Pengaturan",
+    "preferences": "Preferensi",
+    "baseCurrency": "Mata Uang Dasar",
+    "autoRefresh": "Interval Pembaruan Otomatis",
+    "refreshOff": "Mati",
+    "refresh5min": "5 menit",
+    "refresh15min": "15 menit",
+    "refresh30min": "30 menit",
+    "refresh1hr": "1 jam",
+    "theme": "Tema",
+    "themeDark": "Gelap",
+    "themeLight": "Terang",
+    "themeSystem": "Sistem",
+    "snapshotTime": "Waktu Snapshot",
+    "language": "Bahasa",
+    "dataManagement": "Manajemen Data",
+    "exportAll": "Ekspor Semua Data",
+    "importData": "Impor Data",
+    "clearAll": "Hapus Semua Data",
+    "clearWarning": "Ini akan menghapus semua aset, snapshot, dan pengaturan Anda secara permanen.",
+    "clearConfirmTitle": "Hapus Semua Data",
+    "clearConfirmMessage": "Apakah Anda yakin ingin menghapus semua data? Ini akan menghapus semua aset, snapshot, dan pengaturan. Tindakan ini tidak dapat dibatalkan.",
+    "cancel": "Batal",
+    "deleteEverything": "Hapus Semuanya",
+    "loading": "Memuat pengaturan..."
+  },
+  "common": {
+    "cancel": "Batal",
+    "save": "Simpan",
+    "delete": "Hapus",
+    "loading": "Memuat..."
+  }
+}

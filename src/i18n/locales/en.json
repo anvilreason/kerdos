@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "WealthLens"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "assets": "Assets",
+    "history": "History",
+    "settings": "Settings",
+    "openMenu": "Open menu",
+    "navigation": "Navigation",
+    "refreshPrices": "Refresh prices"
+  },
+  "dashboard": {
+    "totalNetWorth": "Total Net Worth",
+    "todaysChange": "Today's Change",
+    "netWorthTrend": "Net Worth Trend",
+    "noSnapshotData": "No snapshot data yet. Snapshots are recorded daily.",
+    "netWorth": "Net Worth",
+    "assetAllocation": "Asset Allocation",
+    "noAssetsToDisplay": "No assets to display.",
+    "topAssets": "Top Assets",
+    "noAssetsYet": "No assets yet. Add your first asset to get started.",
+    "loading": "Loading..."
+  },
+  "assetTypes": {
+    "us_stock": "US Stock",
+    "cn_stock": "CN Stock",
+    "etf": "ETF",
+    "crypto": "Crypto",
+    "gold": "Gold",
+    "forex": "Forex",
+    "real_estate": "Real Estate",
+    "vehicle": "Vehicle",
+    "cash": "Cash",
+    "other": "Other"
+  },
+  "assetTypesPlural": {
+    "us_stock": "US Stocks",
+    "cn_stock": "CN Stocks",
+    "etf": "ETFs",
+    "crypto": "Crypto",
+    "gold": "Gold",
+    "forex": "Forex",
+    "real_estate": "Real Estate",
+    "vehicle": "Vehicles",
+    "cash": "Cash",
+    "other": "Other"
+  },
+  "assetList": {
+    "noAssetsYet": "No assets yet",
+    "addFirstAsset": "Add your first asset to start tracking your wealth."
+  },
+  "assetForm": {
+    "editAsset": "Edit Asset",
+    "addAsset": "Add Asset",
+    "editDescription": "Update the details of your asset.",
+    "addDescription": "Add a new asset to track.",
+    "name": "Name",
+    "namePlaceholder": "e.g. Apple Inc.",
+    "nameRequired": "Name is required",
+    "type": "Type",
+    "ticker": "Ticker",
+    "tickerPlaceholder": "e.g. AAPL",
+    "quantity": "Quantity",
+    "quantityPlaceholder": "e.g. 100",
+    "quantityError": "Quantity must be a positive number",
+    "costPrice": "Cost Price",
+    "optional": "Optional",
+    "costPriceError": "Cost price must be a valid number",
+    "costCurrency": "Cost Currency",
+    "manualPrice": "Manual Price",
+    "manualPricePlaceholder": "Current value per unit",
+    "manualPriceError": "Manual price must be a valid number",
+    "notes": "Notes",
+    "notesPlaceholder": "Optional notes...",
+    "cancel": "Cancel",
+    "saveChanges": "Save Changes"
+  },
+  "assetCard": {
+    "editAsset": "Edit asset",
+    "deleteAsset": "Delete asset",
+    "qty": "Qty:",
+    "manualUpdated": "Manual - updated {{time}}"
+  },
+  "assets": {
+    "title": "Assets",
+    "addAsset": "Add Asset",
+    "loading": "Loading assets...",
+    "deleteTitle": "Delete Asset",
+    "deleteConfirm": "Are you sure you want to delete \"{{name}}\"? This action cannot be undone.",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "history": {
+    "title": "History",
+    "exportCSV": "Export CSV",
+    "exportJSON": "Export JSON",
+    "importJSON": "Import JSON",
+    "loading": "Loading history...",
+    "noSnapshots": "No snapshots yet",
+    "snapshotsAutoCreated": "Snapshots are created automatically at the end of each day.",
+    "date": "Date",
+    "netWorth": "Net Worth",
+    "dailyChange": "Daily Change"
+  },
+  "settings": {
+    "title": "Settings",
+    "preferences": "Preferences",
+    "baseCurrency": "Base Currency",
+    "autoRefresh": "Auto Refresh Interval",
+    "refreshOff": "Off",
+    "refresh5min": "5 minutes",
+    "refresh15min": "15 minutes",
+    "refresh30min": "30 minutes",
+    "refresh1hr": "1 hour",
+    "theme": "Theme",
+    "themeDark": "Dark",
+    "themeLight": "Light",
+    "themeSystem": "System",
+    "snapshotTime": "Snapshot Time",
+    "language": "Language",
+    "dataManagement": "Data Management",
+    "exportAll": "Export All Data",
+    "importData": "Import Data",
+    "clearAll": "Clear All Data",
+    "clearWarning": "This will permanently delete all your assets, snapshots, and settings.",
+    "clearConfirmTitle": "Clear All Data",
+    "clearConfirmMessage": "Are you sure you want to delete all data? This will remove all assets, snapshots, and settings. This action cannot be undone.",
+    "cancel": "Cancel",
+    "deleteEverything": "Delete Everything",
+    "loading": "Loading settings..."
+  },
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "loading": "Loading..."
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "WealthLens"
+  },
+  "nav": {
+    "dashboard": "ڈیش بورڈ",
+    "assets": "اثاثے",
+    "history": "تاریخچہ",
+    "settings": "ترتیبات",
+    "openMenu": "مینو کھولیں",
+    "navigation": "نیویگیشن",
+    "refreshPrices": "قیمتیں تازہ کریں"
+  },
+  "dashboard": {
+    "totalNetWorth": "کل مالیت",
+    "todaysChange": "آج کی تبدیلی",
+    "netWorthTrend": "مالیت کا رجحان",
+    "noSnapshotData": "ابھی تک کوئی اسنیپ شاٹ ڈیٹا نہیں ہے۔ اسنیپ شاٹ روزانہ ریکارڈ کیے جاتے ہیں۔",
+    "netWorth": "مالیت",
+    "assetAllocation": "اثاثوں کی تقسیم",
+    "noAssetsToDisplay": "دکھانے کے لیے کوئی اثاثے نہیں ہیں۔",
+    "topAssets": "سرفہرست اثاثے",
+    "noAssetsYet": "ابھی تک کوئی اثاثے نہیں ہیں۔ شروع کرنے کے لیے اپنا پہلا اثاثہ شامل کریں۔",
+    "loading": "لوڈ ہو رہا ہے..."
+  },
+  "assetTypes": {
+    "us_stock": "امریکی اسٹاک",
+    "cn_stock": "چینی اسٹاک",
+    "etf": "ETF",
+    "crypto": "کرپٹو",
+    "gold": "سونا",
+    "forex": "زرمبادلہ",
+    "real_estate": "جائیداد",
+    "vehicle": "گاڑی",
+    "cash": "نقد",
+    "other": "دیگر"
+  },
+  "assetTypesPlural": {
+    "us_stock": "امریکی اسٹاکس",
+    "cn_stock": "چینی اسٹاکس",
+    "etf": "ETFs",
+    "crypto": "کرپٹو",
+    "gold": "سونا",
+    "forex": "زرمبادلہ",
+    "real_estate": "جائیداد",
+    "vehicle": "گاڑیاں",
+    "cash": "نقد",
+    "other": "دیگر"
+  },
+  "assetList": {
+    "noAssetsYet": "ابھی تک کوئی اثاثے نہیں ہیں",
+    "addFirstAsset": "اپنی دولت ٹریک کرنے کے لیے پہلا اثاثہ شامل کریں۔"
+  },
+  "assetForm": {
+    "editAsset": "اثاثہ ترمیم کریں",
+    "addAsset": "اثاثہ شامل کریں",
+    "editDescription": "اپنے اثاثے کی تفصیلات اپ ڈیٹ کریں۔",
+    "addDescription": "ٹریک کرنے کے لیے نیا اثاثہ شامل کریں۔",
+    "name": "نام",
+    "namePlaceholder": "مثلاً Apple Inc.",
+    "nameRequired": "نام ضروری ہے",
+    "type": "قسم",
+    "ticker": "ٹکر",
+    "tickerPlaceholder": "مثلاً AAPL",
+    "quantity": "مقدار",
+    "quantityPlaceholder": "مثلاً 100",
+    "quantityError": "مقدار ایک مثبت عدد ہونا چاہیے",
+    "costPrice": "لاگت قیمت",
+    "optional": "اختیاری",
+    "costPriceError": "لاگت قیمت ایک درست عدد ہونی چاہیے",
+    "costCurrency": "لاگت کرنسی",
+    "manualPrice": "دستی قیمت",
+    "manualPricePlaceholder": "فی یونٹ موجودہ قیمت",
+    "manualPriceError": "دستی قیمت ایک درست عدد ہونی چاہیے",
+    "notes": "نوٹس",
+    "notesPlaceholder": "اختیاری نوٹس...",
+    "cancel": "منسوخ",
+    "saveChanges": "تبدیلیاں محفوظ کریں"
+  },
+  "assetCard": {
+    "editAsset": "اثاثہ ترمیم کریں",
+    "deleteAsset": "اثاثہ حذف کریں",
+    "qty": "مقدار:",
+    "manualUpdated": "دستی - {{time}} کو اپ ڈیٹ کیا گیا"
+  },
+  "assets": {
+    "title": "اثاثے",
+    "addAsset": "اثاثہ شامل کریں",
+    "loading": "اثاثے لوڈ ہو رہے ہیں...",
+    "deleteTitle": "اثاثہ حذف کریں",
+    "deleteConfirm": "کیا آپ واقعی \"{{name}}\" کو حذف کرنا چاہتے ہیں؟ یہ عمل واپس نہیں کیا جا سکتا۔",
+    "cancel": "منسوخ",
+    "delete": "حذف کریں"
+  },
+  "history": {
+    "title": "تاریخچہ",
+    "exportCSV": "CSV برآمد کریں",
+    "exportJSON": "JSON برآمد کریں",
+    "importJSON": "JSON درآمد کریں",
+    "loading": "تاریخچہ لوڈ ہو رہا ہے...",
+    "noSnapshots": "ابھی تک کوئی اسنیپ شاٹ نہیں ہے",
+    "snapshotsAutoCreated": "ہر دن کے اختتام پر اسنیپ شاٹ خودکار طور پر بنائے جاتے ہیں۔",
+    "date": "تاریخ",
+    "netWorth": "مالیت",
+    "dailyChange": "روزانہ تبدیلی"
+  },
+  "settings": {
+    "title": "ترتیبات",
+    "preferences": "ترجیحات",
+    "baseCurrency": "بنیادی کرنسی",
+    "autoRefresh": "خودکار ریفریش وقفہ",
+    "refreshOff": "بند",
+    "refresh5min": "5 منٹ",
+    "refresh15min": "15 منٹ",
+    "refresh30min": "30 منٹ",
+    "refresh1hr": "1 گھنٹہ",
+    "theme": "تھیم",
+    "themeDark": "ڈارک",
+    "themeLight": "لائٹ",
+    "themeSystem": "سسٹم",
+    "snapshotTime": "اسنیپ شاٹ وقت",
+    "language": "زبان",
+    "dataManagement": "ڈیٹا مینجمنٹ",
+    "exportAll": "تمام ڈیٹا برآمد کریں",
+    "importData": "ڈیٹا درآمد کریں",
+    "clearAll": "تمام ڈیٹا صاف کریں",
+    "clearWarning": "اس سے آپ کے تمام اثاثے، اسنیپ شاٹس اور ترتیبات مستقل طور پر حذف ہو جائیں گی۔",
+    "clearConfirmTitle": "تمام ڈیٹا صاف کریں",
+    "clearConfirmMessage": "کیا آپ واقعی تمام ڈیٹا حذف کرنا چاہتے ہیں؟ اس سے تمام اثاثے، اسنیپ شاٹس اور ترتیبات حذف ہو جائیں گی۔ یہ عمل واپس نہیں کیا جا سکتا۔",
+    "cancel": "منسوخ",
+    "deleteEverything": "سب کچھ حذف کریں",
+    "loading": "ترتیبات لوڈ ہو رہی ہیں..."
+  },
+  "common": {
+    "cancel": "منسوخ",
+    "save": "محفوظ کریں",
+    "delete": "حذف کریں",
+    "loading": "لوڈ ہو رہا ہے..."
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "WealthLens"
+  },
+  "nav": {
+    "dashboard": "Обзор",
+    "assets": "Активы",
+    "history": "История",
+    "settings": "Настройки",
+    "openMenu": "Открыть меню",
+    "navigation": "Навигация",
+    "refreshPrices": "Обновить цены"
+  },
+  "dashboard": {
+    "totalNetWorth": "Общий капитал",
+    "todaysChange": "Изменение за сегодня",
+    "netWorthTrend": "Динамика капитала",
+    "noSnapshotData": "Данных пока нет. Снимки записываются ежедневно.",
+    "netWorth": "Чистый капитал",
+    "assetAllocation": "Распределение активов",
+    "noAssetsToDisplay": "Нет активов для отображения.",
+    "topAssets": "Основные активы",
+    "noAssetsYet": "Активов пока нет. Добавьте первый актив, чтобы начать.",
+    "loading": "Загрузка..."
+  },
+  "assetTypes": {
+    "us_stock": "Акции США",
+    "cn_stock": "Акции Китая",
+    "etf": "ETF",
+    "crypto": "Криптовалюта",
+    "gold": "Золото",
+    "forex": "Валюта",
+    "real_estate": "Недвижимость",
+    "vehicle": "Транспорт",
+    "cash": "Наличные",
+    "other": "Другое"
+  },
+  "assetTypesPlural": {
+    "us_stock": "Акции США",
+    "cn_stock": "Акции Китая",
+    "etf": "ETF",
+    "crypto": "Криптовалюта",
+    "gold": "Золото",
+    "forex": "Валюта",
+    "real_estate": "Недвижимость",
+    "vehicle": "Транспорт",
+    "cash": "Наличные",
+    "other": "Другое"
+  },
+  "assetList": {
+    "noAssetsYet": "Активов пока нет",
+    "addFirstAsset": "Добавьте первый актив, чтобы начать отслеживать своё состояние."
+  },
+  "assetForm": {
+    "editAsset": "Редактировать актив",
+    "addAsset": "Добавить актив",
+    "editDescription": "Обновите данные вашего актива.",
+    "addDescription": "Добавьте новый актив для отслеживания.",
+    "name": "Название",
+    "namePlaceholder": "напр. Apple Inc.",
+    "nameRequired": "Название обязательно",
+    "type": "Тип",
+    "ticker": "Тикер",
+    "tickerPlaceholder": "напр. AAPL",
+    "quantity": "Количество",
+    "quantityPlaceholder": "напр. 100",
+    "quantityError": "Количество должно быть положительным числом",
+    "costPrice": "Цена покупки",
+    "optional": "Необязательно",
+    "costPriceError": "Цена покупки должна быть корректным числом",
+    "costCurrency": "Валюта покупки",
+    "manualPrice": "Цена вручную",
+    "manualPricePlaceholder": "Текущая стоимость за единицу",
+    "manualPriceError": "Цена должна быть корректным числом",
+    "notes": "Заметки",
+    "notesPlaceholder": "Необязательные заметки...",
+    "cancel": "Отмена",
+    "saveChanges": "Сохранить изменения"
+  },
+  "assetCard": {
+    "editAsset": "Редактировать актив",
+    "deleteAsset": "Удалить актив",
+    "qty": "Кол-во:",
+    "manualUpdated": "Вручную — обновлено {{time}}"
+  },
+  "assets": {
+    "title": "Активы",
+    "addAsset": "Добавить актив",
+    "loading": "Загрузка активов...",
+    "deleteTitle": "Удалить актив",
+    "deleteConfirm": "Вы уверены, что хотите удалить \"{{name}}\"? Это действие нельзя отменить.",
+    "cancel": "Отмена",
+    "delete": "Удалить"
+  },
+  "history": {
+    "title": "История",
+    "exportCSV": "Экспорт CSV",
+    "exportJSON": "Экспорт JSON",
+    "importJSON": "Импорт JSON",
+    "loading": "Загрузка истории...",
+    "noSnapshots": "Снимков пока нет",
+    "snapshotsAutoCreated": "Снимки создаются автоматически в конце каждого дня.",
+    "date": "Дата",
+    "netWorth": "Чистый капитал",
+    "dailyChange": "Изменение за день"
+  },
+  "settings": {
+    "title": "Настройки",
+    "preferences": "Параметры",
+    "baseCurrency": "Основная валюта",
+    "autoRefresh": "Интервал автообновления",
+    "refreshOff": "Выкл.",
+    "refresh5min": "5 минут",
+    "refresh15min": "15 минут",
+    "refresh30min": "30 минут",
+    "refresh1hr": "1 час",
+    "theme": "Тема",
+    "themeDark": "Тёмная",
+    "themeLight": "Светлая",
+    "themeSystem": "Системная",
+    "snapshotTime": "Время снимка",
+    "language": "Язык",
+    "dataManagement": "Управление данными",
+    "exportAll": "Экспортировать все данные",
+    "importData": "Импортировать данные",
+    "clearAll": "Очистить все данные",
+    "clearWarning": "Это навсегда удалит все ваши активы, снимки и настройки.",
+    "clearConfirmTitle": "Очистить все данные",
+    "clearConfirmMessage": "Вы уверены, что хотите удалить все данные? Будут удалены все активы, снимки и настройки. Это действие нельзя отменить.",
+    "cancel": "Отмена",
+    "deleteEverything": "Удалить всё",
+    "loading": "Загрузка настроек..."
+  },
+  "common": {
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "delete": "Удалить",
+    "loading": "Загрузка..."
+  }
+}

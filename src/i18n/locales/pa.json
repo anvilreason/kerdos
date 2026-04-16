@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "WealthLens"
+  },
+  "nav": {
+    "dashboard": "ਡੈਸ਼ਬੋਰਡ",
+    "assets": "ਸੰਪਤੀਆਂ",
+    "history": "ਇਤਿਹਾਸ",
+    "settings": "ਸੈਟਿੰਗਾਂ",
+    "openMenu": "ਮੀਨੂ ਖੋਲ੍ਹੋ",
+    "navigation": "ਨੈਵੀਗੇਸ਼ਨ",
+    "refreshPrices": "ਕੀਮਤਾਂ ਤਾਜ਼ਾ ਕਰੋ"
+  },
+  "dashboard": {
+    "totalNetWorth": "ਕੁੱਲ ਨੈੱਟ ਵਰਥ",
+    "todaysChange": "ਅੱਜ ਦੀ ਤਬਦੀਲੀ",
+    "netWorthTrend": "ਨੈੱਟ ਵਰਥ ਰੁਝਾਨ",
+    "noSnapshotData": "ਅਜੇ ਕੋਈ ਸਨੈਪਸ਼ਾਟ ਡੇਟਾ ਨਹੀਂ ਹੈ। ਸਨੈਪਸ਼ਾਟ ਰੋਜ਼ਾਨਾ ਰਿਕਾਰਡ ਕੀਤੇ ਜਾਂਦੇ ਹਨ।",
+    "netWorth": "ਨੈੱਟ ਵਰਥ",
+    "assetAllocation": "ਸੰਪਤੀ ਵੰਡ",
+    "noAssetsToDisplay": "ਦਿਖਾਉਣ ਲਈ ਕੋਈ ਸੰਪਤੀ ਨਹੀਂ ਹੈ।",
+    "topAssets": "ਸਿਖਰਲੀਆਂ ਸੰਪਤੀਆਂ",
+    "noAssetsYet": "ਅਜੇ ਕੋਈ ਸੰਪਤੀ ਨਹੀਂ ਹੈ। ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਆਪਣੀ ਪਹਿਲੀ ਸੰਪਤੀ ਜੋੜੋ।",
+    "loading": "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ..."
+  },
+  "assetTypes": {
+    "us_stock": "ਅਮਰੀਕੀ ਸਟਾਕ",
+    "cn_stock": "ਚੀਨੀ ਸਟਾਕ",
+    "etf": "ETF",
+    "crypto": "ਕ੍ਰਿਪਟੋ",
+    "gold": "ਸੋਨਾ",
+    "forex": "ਵਿਦੇਸ਼ੀ ਮੁਦਰਾ",
+    "real_estate": "ਰੀਅਲ ਅਸਟੇਟ",
+    "vehicle": "ਵਾਹਨ",
+    "cash": "ਨਕਦ",
+    "other": "ਹੋਰ"
+  },
+  "assetTypesPlural": {
+    "us_stock": "ਅਮਰੀਕੀ ਸਟਾਕਾਂ",
+    "cn_stock": "ਚੀਨੀ ਸਟਾਕਾਂ",
+    "etf": "ETFs",
+    "crypto": "ਕ੍ਰਿਪਟੋ",
+    "gold": "ਸੋਨਾ",
+    "forex": "ਵਿਦੇਸ਼ੀ ਮੁਦਰਾ",
+    "real_estate": "ਰੀਅਲ ਅਸਟੇਟ",
+    "vehicle": "ਵਾਹਨ",
+    "cash": "ਨਕਦ",
+    "other": "ਹੋਰ"
+  },
+  "assetList": {
+    "noAssetsYet": "ਅਜੇ ਕੋਈ ਸੰਪਤੀ ਨਹੀਂ ਹੈ",
+    "addFirstAsset": "ਆਪਣੀ ਦੌਲਤ ਟਰੈਕ ਕਰਨ ਲਈ ਪਹਿਲੀ ਸੰਪਤੀ ਜੋੜੋ।"
+  },
+  "assetForm": {
+    "editAsset": "ਸੰਪਤੀ ਸੰਪਾਦਿਤ ਕਰੋ",
+    "addAsset": "ਸੰਪਤੀ ਜੋੜੋ",
+    "editDescription": "ਆਪਣੀ ਸੰਪਤੀ ਦੇ ਵੇਰਵੇ ਅੱਪਡੇਟ ਕਰੋ।",
+    "addDescription": "ਟਰੈਕ ਕਰਨ ਲਈ ਨਵੀਂ ਸੰਪਤੀ ਜੋੜੋ।",
+    "name": "ਨਾਮ",
+    "namePlaceholder": "ਜਿਵੇਂ Apple Inc.",
+    "nameRequired": "ਨਾਮ ਲੋੜੀਂਦਾ ਹੈ",
+    "type": "ਕਿਸਮ",
+    "ticker": "ਟਿੱਕਰ",
+    "tickerPlaceholder": "ਜਿਵੇਂ AAPL",
+    "quantity": "ਮਾਤਰਾ",
+    "quantityPlaceholder": "ਜਿਵੇਂ 100",
+    "quantityError": "ਮਾਤਰਾ ਇੱਕ ਸਕਾਰਾਤਮਕ ਸੰਖਿਆ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ",
+    "costPrice": "ਲਾਗਤ ਕੀਮਤ",
+    "optional": "ਵਿਕਲਪਿਕ",
+    "costPriceError": "ਲਾਗਤ ਕੀਮਤ ਇੱਕ ਵੈਧ ਸੰਖਿਆ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ",
+    "costCurrency": "ਲਾਗਤ ਮੁਦਰਾ",
+    "manualPrice": "ਮੈਨੂਅਲ ਕੀਮਤ",
+    "manualPricePlaceholder": "ਪ੍ਰਤੀ ਯੂਨਿਟ ਮੌਜੂਦਾ ਕੀਮਤ",
+    "manualPriceError": "ਮੈਨੂਅਲ ਕੀਮਤ ਇੱਕ ਵੈਧ ਸੰਖਿਆ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ",
+    "notes": "ਨੋਟਸ",
+    "notesPlaceholder": "ਵਿਕਲਪਿਕ ਨੋਟਸ...",
+    "cancel": "ਰੱਦ ਕਰੋ",
+    "saveChanges": "ਤਬਦੀਲੀਆਂ ਸੁਰੱਖਿਅਤ ਕਰੋ"
+  },
+  "assetCard": {
+    "editAsset": "ਸੰਪਤੀ ਸੰਪਾਦਿਤ ਕਰੋ",
+    "deleteAsset": "ਸੰਪਤੀ ਮਿਟਾਓ",
+    "qty": "ਮਾਤਰਾ:",
+    "manualUpdated": "ਮੈਨੂਅਲ - {{time}} ਨੂੰ ਅੱਪਡੇਟ ਕੀਤਾ"
+  },
+  "assets": {
+    "title": "ਸੰਪਤੀਆਂ",
+    "addAsset": "ਸੰਪਤੀ ਜੋੜੋ",
+    "loading": "ਸੰਪਤੀਆਂ ਲੋਡ ਹੋ ਰਹੀਆਂ ਹਨ...",
+    "deleteTitle": "ਸੰਪਤੀ ਮਿਟਾਓ",
+    "deleteConfirm": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਹੋ ਕਿ ਤੁਸੀਂ \"{{name}}\" ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ।",
+    "cancel": "ਰੱਦ ਕਰੋ",
+    "delete": "ਮਿਟਾਓ"
+  },
+  "history": {
+    "title": "ਇਤਿਹਾਸ",
+    "exportCSV": "CSV ਨਿਰਯਾਤ ਕਰੋ",
+    "exportJSON": "JSON ਨਿਰਯਾਤ ਕਰੋ",
+    "importJSON": "JSON ਆਯਾਤ ਕਰੋ",
+    "loading": "ਇਤਿਹਾਸ ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ...",
+    "noSnapshots": "ਅਜੇ ਕੋਈ ਸਨੈਪਸ਼ਾਟ ਨਹੀਂ ਹੈ",
+    "snapshotsAutoCreated": "ਹਰ ਦਿਨ ਦੇ ਅੰਤ ਵਿੱਚ ਸਨੈਪਸ਼ਾਟ ਆਪਣੇ ਆਪ ਬਣਾਏ ਜਾਂਦੇ ਹਨ।",
+    "date": "ਤਾਰੀਖ਼",
+    "netWorth": "ਨੈੱਟ ਵਰਥ",
+    "dailyChange": "ਰੋਜ਼ਾਨਾ ਤਬਦੀਲੀ"
+  },
+  "settings": {
+    "title": "ਸੈਟਿੰਗਾਂ",
+    "preferences": "ਤਰਜੀਹਾਂ",
+    "baseCurrency": "ਮੂਲ ਮੁਦਰਾ",
+    "autoRefresh": "ਆਟੋ ਰਿਫ੍ਰੈਸ਼ ਅੰਤਰਾਲ",
+    "refreshOff": "ਬੰਦ",
+    "refresh5min": "5 ਮਿੰਟ",
+    "refresh15min": "15 ਮਿੰਟ",
+    "refresh30min": "30 ਮਿੰਟ",
+    "refresh1hr": "1 ਘੰਟਾ",
+    "theme": "ਥੀਮ",
+    "themeDark": "ਡਾਰਕ",
+    "themeLight": "ਲਾਈਟ",
+    "themeSystem": "ਸਿਸਟਮ",
+    "snapshotTime": "ਸਨੈਪਸ਼ਾਟ ਸਮਾਂ",
+    "language": "ਭਾਸ਼ਾ",
+    "dataManagement": "ਡੇਟਾ ਪ੍ਰਬੰਧਨ",
+    "exportAll": "ਸਾਰਾ ਡੇਟਾ ਨਿਰਯਾਤ ਕਰੋ",
+    "importData": "ਡੇਟਾ ਆਯਾਤ ਕਰੋ",
+    "clearAll": "ਸਾਰਾ ਡੇਟਾ ਮਿਟਾਓ",
+    "clearWarning": "ਇਸ ਨਾਲ ਤੁਹਾਡੀਆਂ ਸਾਰੀਆਂ ਸੰਪਤੀਆਂ, ਸਨੈਪਸ਼ਾਟ ਅਤੇ ਸੈਟਿੰਗਾਂ ਸਥਾਈ ਤੌਰ 'ਤੇ ਮਿਟ ਜਾਣਗੀਆਂ।",
+    "clearConfirmTitle": "ਸਾਰਾ ਡੇਟਾ ਮਿਟਾਓ",
+    "clearConfirmMessage": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਹੋ ਕਿ ਤੁਸੀਂ ਸਾਰਾ ਡੇਟਾ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? ਇਸ ਨਾਲ ਸਾਰੀਆਂ ਸੰਪਤੀਆਂ, ਸਨੈਪਸ਼ਾਟ ਅਤੇ ਸੈਟਿੰਗਾਂ ਮਿਟ ਜਾਣਗੀਆਂ। ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ।",
+    "cancel": "ਰੱਦ ਕਰੋ",
+    "deleteEverything": "ਸਭ ਕੁਝ ਮਿਟਾਓ",
+    "loading": "ਸੈਟਿੰਗਾਂ ਲੋਡ ਹੋ ਰਹੀਆਂ ਹਨ..."
+  },
+  "common": {
+    "cancel": "ਰੱਦ ਕਰੋ",
+    "save": "ਸੁਰੱਖਿਅਤ ਕਰੋ",
+    "delete": "ਮਿਟਾਓ",
+    "loading": "ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ..."
+  }
+}

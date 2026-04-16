@@ -1,0 +1,10 @@
+{
+  "name": "WealthLens",
+  "short_name": "WealthLens",
+  "description": "Local-first asset tracking PWA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#16171d",
+  "theme_color": "#16171d",
+  "icons": []
+}

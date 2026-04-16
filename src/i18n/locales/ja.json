@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "WealthLens"
+  },
+  "nav": {
+    "dashboard": "ダッシュボード",
+    "assets": "資産",
+    "history": "履歴",
+    "settings": "設定",
+    "openMenu": "メニューを開く",
+    "navigation": "ナビゲーション",
+    "refreshPrices": "価格を更新"
+  },
+  "dashboard": {
+    "totalNetWorth": "純資産総額",
+    "todaysChange": "本日の変動",
+    "netWorthTrend": "純資産推移",
+    "noSnapshotData": "スナップショットデータがありません。スナップショットは毎日自動で記録されます。",
+    "netWorth": "純資産",
+    "assetAllocation": "資産配分",
+    "noAssetsToDisplay": "表示する資産がありません。",
+    "topAssets": "主要資産",
+    "noAssetsYet": "資産がまだありません。最初の資産を追加して始めましょう。",
+    "loading": "読み込み中..."
+  },
+  "assetTypes": {
+    "us_stock": "米国株",
+    "cn_stock": "中国株",
+    "etf": "ETF",
+    "crypto": "暗号資産",
+    "gold": "金",
+    "forex": "外貨",
+    "real_estate": "不動産",
+    "vehicle": "車両",
+    "cash": "現金",
+    "other": "その他"
+  },
+  "assetTypesPlural": {
+    "us_stock": "米国株",
+    "cn_stock": "中国株",
+    "etf": "ETF",
+    "crypto": "暗号資産",
+    "gold": "金",
+    "forex": "外貨",
+    "real_estate": "不動産",
+    "vehicle": "車両",
+    "cash": "現金",
+    "other": "その他"
+  },
+  "assetList": {
+    "noAssetsYet": "資産がまだありません",
+    "addFirstAsset": "最初の資産を追加して、資産管理を始めましょう。"
+  },
+  "assetForm": {
+    "editAsset": "資産を編集",
+    "addAsset": "資産を追加",
+    "editDescription": "資産の詳細を更新します。",
+    "addDescription": "新しい資産を追加して追跡します。",
+    "name": "名称",
+    "namePlaceholder": "例：Apple Inc.",
+    "nameRequired": "名称は必須です",
+    "type": "種類",
+    "ticker": "ティッカー",
+    "tickerPlaceholder": "例：AAPL",
+    "quantity": "数量",
+    "quantityPlaceholder": "例：100",
+    "quantityError": "数量は正の数である必要があります",
+    "costPrice": "取得単価",
+    "optional": "任意",
+    "costPriceError": "取得単価は有効な数値である必要があります",
+    "costCurrency": "取得通貨",
+    "manualPrice": "手動価格",
+    "manualPricePlaceholder": "現在の単価",
+    "manualPriceError": "手動価格は有効な数値である必要があります",
+    "notes": "メモ",
+    "notesPlaceholder": "メモ（任意）...",
+    "cancel": "キャンセル",
+    "saveChanges": "変更を保存"
+  },
+  "assetCard": {
+    "editAsset": "資産を編集",
+    "deleteAsset": "資産を削除",
+    "qty": "数量：",
+    "manualUpdated": "手動 - {{time}}に更新"
+  },
+  "assets": {
+    "title": "資産",
+    "addAsset": "資産を追加",
+    "loading": "資産を読み込み中...",
+    "deleteTitle": "資産を削除",
+    "deleteConfirm": "「{{name}}」を削除してもよろしいですか？この操作は取り消せません。",
+    "cancel": "キャンセル",
+    "delete": "削除"
+  },
+  "history": {
+    "title": "履歴",
+    "exportCSV": "CSV エクスポート",
+    "exportJSON": "JSON エクスポート",
+    "importJSON": "JSON インポート",
+    "loading": "履歴を読み込み中...",
+    "noSnapshots": "スナップショットがありません",
+    "snapshotsAutoCreated": "スナップショットは毎日の終わりに自動作成されます。",
+    "date": "日付",
+    "netWorth": "純資産",
+    "dailyChange": "日次変動"
+  },
+  "settings": {
+    "title": "設定",
+    "preferences": "環境設定",
+    "baseCurrency": "基準通貨",
+    "autoRefresh": "自動更新間隔",
+    "refreshOff": "オフ",
+    "refresh5min": "5分",
+    "refresh15min": "15分",
+    "refresh30min": "30分",
+    "refresh1hr": "1時間",
+    "theme": "テーマ",
+    "themeDark": "ダーク",
+    "themeLight": "ライト",
+    "themeSystem": "システム",
+    "snapshotTime": "スナップショット時刻",
+    "language": "言語",
+    "dataManagement": "データ管理",
+    "exportAll": "全データをエクスポート",
+    "importData": "データをインポート",
+    "clearAll": "全データを消去",
+    "clearWarning": "すべての資産、スナップショット、設定が完全に削除されます。",
+    "clearConfirmTitle": "全データを消去",
+    "clearConfirmMessage": "すべてのデータを削除してもよろしいですか？資産、スナップショット、設定がすべて削除されます。この操作は取り消せません。",
+    "cancel": "キャンセル",
+    "deleteEverything": "すべて削除",
+    "loading": "設定を読み込み中..."
+  },
+  "common": {
+    "cancel": "キャンセル",
+    "save": "保存",
+    "delete": "削除",
+    "loading": "読み込み中..."
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "WealthLens"
+  },
+  "nav": {
+    "dashboard": "ড্যাশবোর্ড",
+    "assets": "সম্পদ",
+    "history": "ইতিহাস",
+    "settings": "সেটিংস",
+    "openMenu": "মেনু খুলুন",
+    "navigation": "নেভিগেশন",
+    "refreshPrices": "মূল্য রিফ্রেশ করুন"
+  },
+  "dashboard": {
+    "totalNetWorth": "মোট নেট ওয়ার্থ",
+    "todaysChange": "আজকের পরিবর্তন",
+    "netWorthTrend": "নেট ওয়ার্থ প্রবণতা",
+    "noSnapshotData": "এখনও কোনো স্ন্যাপশট ডেটা নেই। স্ন্যাপশট প্রতিদিন রেকর্ড করা হয়।",
+    "netWorth": "নেট ওয়ার্থ",
+    "assetAllocation": "সম্পদ বরাদ্দ",
+    "noAssetsToDisplay": "প্রদর্শনের জন্য কোনো সম্পদ নেই।",
+    "topAssets": "শীর্ষ সম্পদ",
+    "noAssetsYet": "এখনও কোনো সম্পদ নেই। শুরু করতে আপনার প্রথম সম্পদ যোগ করুন।",
+    "loading": "লোড হচ্ছে..."
+  },
+  "assetTypes": {
+    "us_stock": "মার্কিন স্টক",
+    "cn_stock": "চীনা স্টক",
+    "etf": "ETF",
+    "crypto": "ক্রিপ্টো",
+    "gold": "সোনা",
+    "forex": "বৈদেশিক মুদ্রা",
+    "real_estate": "রিয়েল এস্টেট",
+    "vehicle": "যানবাহন",
+    "cash": "নগদ",
+    "other": "অন্যান্য"
+  },
+  "assetTypesPlural": {
+    "us_stock": "মার্কিন স্টকসমূহ",
+    "cn_stock": "চীনা স্টকসমূহ",
+    "etf": "ETFs",
+    "crypto": "ক্রিপ্টো",
+    "gold": "সোনা",
+    "forex": "বৈদেশিক মুদ্রা",
+    "real_estate": "রিয়েল এস্টেট",
+    "vehicle": "যানবাহন",
+    "cash": "নগদ",
+    "other": "অন্যান্য"
+  },
+  "assetList": {
+    "noAssetsYet": "এখনও কোনো সম্পদ নেই",
+    "addFirstAsset": "আপনার সম্পদ ট্র্যাক করতে প্রথম সম্পদ যোগ করুন।"
+  },
+  "assetForm": {
+    "editAsset": "সম্পদ সম্পাদনা করুন",
+    "addAsset": "সম্পদ যোগ করুন",
+    "editDescription": "আপনার সম্পদের বিবরণ আপডেট করুন।",
+    "addDescription": "ট্র্যাক করতে একটি নতুন সম্পদ যোগ করুন।",
+    "name": "নাম",
+    "namePlaceholder": "যেমন Apple Inc.",
+    "nameRequired": "নাম আবশ্যক",
+    "type": "ধরন",
+    "ticker": "টিকার",
+    "tickerPlaceholder": "যেমন AAPL",
+    "quantity": "পরিমাণ",
+    "quantityPlaceholder": "যেমন 100",
+    "quantityError": "পরিমাণ একটি ধনাত্মক সংখ্যা হতে হবে",
+    "costPrice": "ক্রয়মূল্য",
+    "optional": "ঐচ্ছিক",
+    "costPriceError": "ক্রয়মূল্য একটি বৈধ সংখ্যা হতে হবে",
+    "costCurrency": "ক্রয় মুদ্রা",
+    "manualPrice": "ম্যানুয়াল মূল্য",
+    "manualPricePlaceholder": "প্রতি ইউনিট বর্তমান মূল্য",
+    "manualPriceError": "ম্যানুয়াল মূল্য একটি বৈধ সংখ্যা হতে হবে",
+    "notes": "নোটস",
+    "notesPlaceholder": "ঐচ্ছিক নোটস...",
+    "cancel": "বাতিল",
+    "saveChanges": "পরিবর্তন সংরক্ষণ করুন"
+  },
+  "assetCard": {
+    "editAsset": "সম্পদ সম্পাদনা করুন",
+    "deleteAsset": "সম্পদ মুছুন",
+    "qty": "পরিমাণ:",
+    "manualUpdated": "ম্যানুয়াল - {{time}} আপডেট করা হয়েছে"
+  },
+  "assets": {
+    "title": "সম্পদ",
+    "addAsset": "সম্পদ যোগ করুন",
+    "loading": "সম্পদ লোড হচ্ছে...",
+    "deleteTitle": "সম্পদ মুছুন",
+    "deleteConfirm": "আপনি কি নিশ্চিত যে আপনি \"{{name}}\" মুছতে চান? এই কাজটি পূর্বাবস্থায় ফেরানো যাবে না।",
+    "cancel": "বাতিল",
+    "delete": "মুছুন"
+  },
+  "history": {
+    "title": "ইতিহাস",
+    "exportCSV": "CSV রপ্তানি করুন",
+    "exportJSON": "JSON রপ্তানি করুন",
+    "importJSON": "JSON আমদানি করুন",
+    "loading": "ইতিহাস লোড হচ্ছে...",
+    "noSnapshots": "এখনও কোনো স্ন্যাপশট নেই",
+    "snapshotsAutoCreated": "প্রতিদিনের শেষে স্ন্যাপশট স্বয়ংক্রিয়ভাবে তৈরি হয়।",
+    "date": "তারিখ",
+    "netWorth": "নেট ওয়ার্থ",
+    "dailyChange": "দৈনিক পরিবর্তন"
+  },
+  "settings": {
+    "title": "সেটিংস",
+    "preferences": "পছন্দসমূহ",
+    "baseCurrency": "ভিত্তি মুদ্রা",
+    "autoRefresh": "স্বয়ংক্রিয় রিফ্রেশ ব্যবধান",
+    "refreshOff": "বন্ধ",
+    "refresh5min": "৫ মিনিট",
+    "refresh15min": "১৫ মিনিট",
+    "refresh30min": "৩০ মিনিট",
+    "refresh1hr": "১ ঘণ্টা",
+    "theme": "থিম",
+    "themeDark": "ডার্ক",
+    "themeLight": "লাইট",
+    "themeSystem": "সিস্টেম",
+    "snapshotTime": "স্ন্যাপশট সময়",
+    "language": "ভাষা",
+    "dataManagement": "ডেটা ব্যবস্থাপনা",
+    "exportAll": "সকল ডেটা রপ্তানি করুন",
+    "importData": "ডেটা আমদানি করুন",
+    "clearAll": "সকল ডেটা মুছুন",
+    "clearWarning": "এটি আপনার সকল সম্পদ, স্ন্যাপশট এবং সেটিংস স্থায়ীভাবে মুছে ফেলবে।",
+    "clearConfirmTitle": "সকল ডেটা মুছুন",
+    "clearConfirmMessage": "আপনি কি নিশ্চিত যে আপনি সকল ডেটা মুছতে চান? এটি সকল সম্পদ, স্ন্যাপশট এবং সেটিংস মুছে ফেলবে। এই কাজটি পূর্বাবস্থায় ফেরানো যাবে না।",
+    "cancel": "বাতিল",
+    "deleteEverything": "সবকিছু মুছুন",
+    "loading": "সেটিংস লোড হচ্ছে..."
+  },
+  "common": {
+    "cancel": "বাতিল",
+    "save": "সংরক্ষণ",
+    "delete": "মুছুন",
+    "loading": "লোড হচ্ছে..."
+  }
+}

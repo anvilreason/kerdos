@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "WealthLens"
+  },
+  "nav": {
+    "dashboard": "仪表盘",
+    "assets": "资产",
+    "history": "历史记录",
+    "settings": "设置",
+    "openMenu": "打开菜单",
+    "navigation": "导航",
+    "refreshPrices": "刷新价格"
+  },
+  "dashboard": {
+    "totalNetWorth": "总净值",
+    "todaysChange": "今日变动",
+    "netWorthTrend": "净值趋势",
+    "noSnapshotData": "暂无快照数据。快照每日自动记录。",
+    "netWorth": "净值",
+    "assetAllocation": "资产配置",
+    "noAssetsToDisplay": "暂无可显示的资产。",
+    "topAssets": "主要资产",
+    "noAssetsYet": "暂无资产。添加您的第一项资产以开始使用。",
+    "loading": "加载中..."
+  },
+  "assetTypes": {
+    "us_stock": "美股",
+    "cn_stock": "A股",
+    "etf": "ETF",
+    "crypto": "加密货币",
+    "gold": "黄金",
+    "forex": "外汇",
+    "real_estate": "房产",
+    "vehicle": "车辆",
+    "cash": "现金",
+    "other": "其他"
+  },
+  "assetTypesPlural": {
+    "us_stock": "美股",
+    "cn_stock": "A股",
+    "etf": "ETF",
+    "crypto": "加密货币",
+    "gold": "黄金",
+    "forex": "外汇",
+    "real_estate": "房产",
+    "vehicle": "车辆",
+    "cash": "现金",
+    "other": "其他"
+  },
+  "assetList": {
+    "noAssetsYet": "暂无资产",
+    "addFirstAsset": "添加您的第一项资产，开始追踪您的财富。"
+  },
+  "assetForm": {
+    "editAsset": "编辑资产",
+    "addAsset": "添加资产",
+    "editDescription": "更新您的资产详情。",
+    "addDescription": "添加一项新资产进行追踪。",
+    "name": "名称",
+    "namePlaceholder": "如 苹果公司",
+    "nameRequired": "名称为必填项",
+    "type": "类型",
+    "ticker": "代码",
+    "tickerPlaceholder": "如 AAPL",
+    "quantity": "数量",
+    "quantityPlaceholder": "如 100",
+    "quantityError": "数量必须为正数",
+    "costPrice": "成本价",
+    "optional": "可选",
+    "costPriceError": "成本价必须为有效数字",
+    "costCurrency": "成本币种",
+    "manualPrice": "手动价格",
+    "manualPricePlaceholder": "当前单位价值",
+    "manualPriceError": "手动价格必须为有效数字",
+    "notes": "备注",
+    "notesPlaceholder": "可选备注...",
+    "cancel": "取消",
+    "saveChanges": "保存更改"
+  },
+  "assetCard": {
+    "editAsset": "编辑资产",
+    "deleteAsset": "删除资产",
+    "qty": "数量：",
+    "manualUpdated": "手动 - 更新于 {{time}}"
+  },
+  "assets": {
+    "title": "资产",
+    "addAsset": "添加资产",
+    "loading": "正在加载资产...",
+    "deleteTitle": "删除资产",
+    "deleteConfirm": "确定要删除「{{name}}」吗？此操作无法撤销。",
+    "cancel": "取消",
+    "delete": "删除"
+  },
+  "history": {
+    "title": "历史记录",
+    "exportCSV": "导出 CSV",
+    "exportJSON": "导出 JSON",
+    "importJSON": "导入 JSON",
+    "loading": "正在加载历史记录...",
+    "noSnapshots": "暂无快照",
+    "snapshotsAutoCreated": "快照会在每天结束时自动创建。",
+    "date": "日期",
+    "netWorth": "净值",
+    "dailyChange": "日变动"
+  },
+  "settings": {
+    "title": "设置",
+    "preferences": "偏好设置",
+    "baseCurrency": "基础货币",
+    "autoRefresh": "自动刷新间隔",
+    "refreshOff": "关闭",
+    "refresh5min": "5 分钟",
+    "refresh15min": "15 分钟",
+    "refresh30min": "30 分钟",
+    "refresh1hr": "1 小时",
+    "theme": "主题",
+    "themeDark": "深色",
+    "themeLight": "浅色",
+    "themeSystem": "跟随系统",
+    "snapshotTime": "快照时间",
+    "language": "语言",
+    "dataManagement": "数据管理",
+    "exportAll": "导出全部数据",
+    "importData": "导入数据",
+    "clearAll": "清除全部数据",
+    "clearWarning": "此操作将永久删除您的所有资产、快照和设置。",
+    "clearConfirmTitle": "清除全部数据",
+    "clearConfirmMessage": "确定要删除所有数据吗？这将移除所有资产、快照和设置。此操作无法撤销。",
+    "cancel": "取消",
+    "deleteEverything": "删除所有内容",
+    "loading": "正在加载设置..."
+  },
+  "common": {
+    "cancel": "取消",
+    "save": "保存",
+    "delete": "删除",
+    "loading": "加载中..."
+  }
+}

@@ -1,121 +1,162 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useEffect, useState, useCallback } from 'react';
+import { HashRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import Sidebar from '@/components/layout/Sidebar';
+import TopBar from '@/components/layout/TopBar';
+import TabBar from '@/components/layout/TabBar';
+import StatusBar from '@/components/layout/StatusBar';
+import CommandPalette from '@/components/layout/CommandPalette';
+import Dashboard from '@/pages/Dashboard';
+import Assets from '@/pages/Assets';
+import History from '@/pages/History';
+import Settings from '@/pages/Settings';
+import LandingPage from '@/pages/landing/LandingPage';
+import { useNetWorth } from '@/hooks/useNetWorth';
+import { useAssets } from '@/hooks/useAssets';
+import { usePrices } from '@/hooks/usePrices';
+import { useSettings } from '@/stores/settingsStore';
+import { checkAndCreateSnapshot } from '@/services/snapshotService';
+import { exportToJSON, downloadFile } from '@/utils/export';
+import { db } from '@/db';
+import type { Asset } from '@/types/asset';
 
-function App() {
-  const [count, setCount] = useState(0)
+function AppLayout() {
+  const { refetch } = useNetWorth();
+  const { assets } = useAssets();
+  const { prices, refetch: refetchPrices } = usePrices(assets);
+  const { settings } = useSettings();
+  const navigate = useNavigate();
+  const [selectedAssetId, setSelectedAssetId] = useState<string | null>(null);
+  const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
+
+  // Auto-create daily snapshot on app load
+  useEffect(() => {
+    checkAndCreateSnapshot().catch((err) =>
+      console.error('[snapshot] Auto-snapshot failed:', err),
+    );
+  }, []);
+
+  // Cmd+K listener for command palette
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setCommandPaletteOpen((prev) => !prev);
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  const handleAddAsset = () => {
+    navigate('/app/assets');
+  };
+
+  const handleExportJSON = useCallback(async () => {
+    const allAssets = await db.assets.toArray();
+    const allSnapshots = await db.snapshots.toArray();
+    const json = exportToJSON({ assets: allAssets, snapshots: allSnapshots });
+    downloadFile(json, 'wealthlens-export.json', 'application/json');
+  }, []);
+
+  const handleTakeSnapshot = useCallback(async () => {
+    try {
+      await checkAndCreateSnapshot();
+    } catch (err) {
+      console.error('[snapshot] Manual snapshot failed:', err);
+    }
+  }, []);
+
+  const handleSelectAsset = useCallback(
+    (_asset: Asset) => {
+      navigate('/app/assets');
+    },
+    [navigate],
+  );
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100vh',
+        overflow: 'hidden',
+        background: 'var(--color-base-00)',
+        color: 'var(--color-text-normal)',
+      }}
+    >
+      {/* TopBar spans full width */}
+      <TopBar onRefresh={refetch} onAddAsset={handleAddAsset} />
+
+      {/* Middle row: Sidebar + Content */}
+      <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
+        {/* Sidebar */}
+        <Sidebar
+          selectedAssetId={selectedAssetId}
+          onSelectAsset={setSelectedAssetId}
+          onAddAsset={handleAddAsset}
+        />
+
+        {/* Main content area */}
+        <div
+          style={{
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden',
+            minWidth: 0,
+          }}
         >
-          Count is {count}
-        </button>
-      </section>
+          {/* TabBar */}
+          <TabBar />
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+          {/* Content */}
+          <main
+            style={{
+              flex: 1,
+              overflowY: 'auto',
+              padding: '16px 24px',
+              background: 'var(--color-base-05)',
+            }}
+          >
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/assets" element={<Assets />} />
+              <Route path="/history" element={<History />} />
+              <Route path="/settings" element={<Settings />} />
+            </Routes>
+          </main>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+      </div>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      {/* StatusBar spans full width */}
+      <StatusBar onRefresh={refetch} />
+
+      {/* Command Palette overlay */}
+      <CommandPalette
+        open={commandPaletteOpen}
+        onClose={() => setCommandPaletteOpen(false)}
+        assets={assets}
+        prices={prices}
+        baseCurrency={settings.baseCurrency}
+        onAddAsset={handleAddAsset}
+        onSelectAsset={handleSelectAsset}
+        onExportJSON={handleExportJSON}
+        onRefreshPrices={refetchPrices}
+        onTakeSnapshot={handleTakeSnapshot}
+      />
+    </div>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/app/*" element={<AppLayout />} />
+      </Routes>
+    </HashRouter>
+  );
+}
+
+export default App;

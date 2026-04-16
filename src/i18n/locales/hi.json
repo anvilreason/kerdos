@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "WealthLens"
+  },
+  "nav": {
+    "dashboard": "डैशबोर्ड",
+    "assets": "संपत्तियाँ",
+    "history": "इतिहास",
+    "settings": "सेटिंग्स",
+    "openMenu": "मेन्यू खोलें",
+    "navigation": "नेविगेशन",
+    "refreshPrices": "कीमतें अपडेट करें"
+  },
+  "dashboard": {
+    "totalNetWorth": "कुल नेट वर्थ",
+    "todaysChange": "आज का बदलाव",
+    "netWorthTrend": "नेट वर्थ रुझान",
+    "noSnapshotData": "अभी तक कोई स्नैपशॉट डेटा नहीं है। स्नैपशॉट प्रतिदिन रिकॉर्ड किए जाते हैं।",
+    "netWorth": "नेट वर्थ",
+    "assetAllocation": "संपत्ति आवंटन",
+    "noAssetsToDisplay": "दिखाने के लिए कोई संपत्ति नहीं है।",
+    "topAssets": "शीर्ष संपत्तियाँ",
+    "noAssetsYet": "अभी कोई संपत्ति नहीं है। शुरू करने के लिए अपनी पहली संपत्ति जोड़ें।",
+    "loading": "लोड हो रहा है..."
+  },
+  "assetTypes": {
+    "us_stock": "अमेरिकी स्टॉक",
+    "cn_stock": "चीनी स्टॉक",
+    "etf": "ETF",
+    "crypto": "क्रिप्टो",
+    "gold": "सोना",
+    "forex": "विदेशी मुद्रा",
+    "real_estate": "रियल एस्टेट",
+    "vehicle": "वाहन",
+    "cash": "नकद",
+    "other": "अन्य"
+  },
+  "assetTypesPlural": {
+    "us_stock": "अमेरिकी स्टॉक्स",
+    "cn_stock": "चीनी स्टॉक्स",
+    "etf": "ETFs",
+    "crypto": "क्रिप्टो",
+    "gold": "सोना",
+    "forex": "विदेशी मुद्रा",
+    "real_estate": "रियल एस्टेट",
+    "vehicle": "वाहन",
+    "cash": "नकद",
+    "other": "अन्य"
+  },
+  "assetList": {
+    "noAssetsYet": "अभी कोई संपत्ति नहीं है",
+    "addFirstAsset": "अपनी संपत्ति ट्रैक करने के लिए पहली संपत्ति जोड़ें।"
+  },
+  "assetForm": {
+    "editAsset": "संपत्ति संपादित करें",
+    "addAsset": "संपत्ति जोड़ें",
+    "editDescription": "अपनी संपत्ति का विवरण अपडेट करें।",
+    "addDescription": "ट्रैक करने के लिए नई संपत्ति जोड़ें।",
+    "name": "नाम",
+    "namePlaceholder": "जैसे Apple Inc.",
+    "nameRequired": "नाम आवश्यक है",
+    "type": "प्रकार",
+    "ticker": "टिकर",
+    "tickerPlaceholder": "जैसे AAPL",
+    "quantity": "मात्रा",
+    "quantityPlaceholder": "जैसे 100",
+    "quantityError": "मात्रा एक सकारात्मक संख्या होनी चाहिए",
+    "costPrice": "लागत मूल्य",
+    "optional": "वैकल्पिक",
+    "costPriceError": "लागत मूल्य एक वैध संख्या होनी चाहिए",
+    "costCurrency": "लागत मुद्रा",
+    "manualPrice": "मैन्युअल मूल्य",
+    "manualPricePlaceholder": "प्रति इकाई वर्तमान मूल्य",
+    "manualPriceError": "मैन्युअल मूल्य एक वैध संख्या होना चाहिए",
+    "notes": "नोट्स",
+    "notesPlaceholder": "वैकल्पिक नोट्स...",
+    "cancel": "रद्द करें",
+    "saveChanges": "बदलाव सहेजें"
+  },
+  "assetCard": {
+    "editAsset": "संपत्ति संपादित करें",
+    "deleteAsset": "संपत्ति हटाएँ",
+    "qty": "मात्रा:",
+    "manualUpdated": "मैन्युअल - {{time}} को अपडेट किया गया"
+  },
+  "assets": {
+    "title": "संपत्तियाँ",
+    "addAsset": "संपत्ति जोड़ें",
+    "loading": "संपत्तियाँ लोड हो रही हैं...",
+    "deleteTitle": "संपत्ति हटाएँ",
+    "deleteConfirm": "क्या आप वाकई \"{{name}}\" को हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती।",
+    "cancel": "रद्द करें",
+    "delete": "हटाएँ"
+  },
+  "history": {
+    "title": "इतिहास",
+    "exportCSV": "CSV निर्यात करें",
+    "exportJSON": "JSON निर्यात करें",
+    "importJSON": "JSON आयात करें",
+    "loading": "इतिहास लोड हो रहा है...",
+    "noSnapshots": "अभी तक कोई स्नैपशॉट नहीं है",
+    "snapshotsAutoCreated": "स्नैपशॉट हर दिन के अंत में स्वचालित रूप से बनाए जाते हैं।",
+    "date": "तारीख",
+    "netWorth": "नेट वर्थ",
+    "dailyChange": "दैनिक बदलाव"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "preferences": "प्राथमिकताएँ",
+    "baseCurrency": "आधार मुद्रा",
+    "autoRefresh": "ऑटो रिफ्रेश अंतराल",
+    "refreshOff": "बंद",
+    "refresh5min": "5 मिनट",
+    "refresh15min": "15 मिनट",
+    "refresh30min": "30 मिनट",
+    "refresh1hr": "1 घंटा",
+    "theme": "थीम",
+    "themeDark": "डार्क",
+    "themeLight": "लाइट",
+    "themeSystem": "सिस्टम",
+    "snapshotTime": "स्नैपशॉट समय",
+    "language": "भाषा",
+    "dataManagement": "डेटा प्रबंधन",
+    "exportAll": "सभी डेटा निर्यात करें",
+    "importData": "डेटा आयात करें",
+    "clearAll": "सभी डेटा मिटाएँ",
+    "clearWarning": "इससे आपकी सभी संपत्तियाँ, स्नैपशॉट और सेटिंग्स स्थायी रूप से हटा दी जाएँगी।",
+    "clearConfirmTitle": "सभी डेटा मिटाएँ",
+    "clearConfirmMessage": "क्या आप वाकई सभी डेटा हटाना चाहते हैं? इससे सभी संपत्तियाँ, स्नैपशॉट और सेटिंग्स हट जाएँगी। यह क्रिया पूर्ववत नहीं की जा सकती।",
+    "cancel": "रद्द करें",
+    "deleteEverything": "सब कुछ हटाएँ",
+    "loading": "सेटिंग्स लोड हो रही हैं..."
+  },
+  "common": {
+    "cancel": "रद्द करें",
+    "save": "सहेजें",
+    "delete": "हटाएँ",
+    "loading": "लोड हो रहा है..."
+  }
+}

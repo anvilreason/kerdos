@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "WealthLens"
+  },
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "assets": "Actifs",
+    "history": "Historique",
+    "settings": "Paramètres",
+    "openMenu": "Ouvrir le menu",
+    "navigation": "Navigation",
+    "refreshPrices": "Actualiser les prix"
+  },
+  "dashboard": {
+    "totalNetWorth": "Patrimoine net total",
+    "todaysChange": "Variation du jour",
+    "netWorthTrend": "Tendance du patrimoine net",
+    "noSnapshotData": "Aucune donnée disponible. Les instantanés sont enregistrés quotidiennement.",
+    "netWorth": "Patrimoine net",
+    "assetAllocation": "Répartition des actifs",
+    "noAssetsToDisplay": "Aucun actif à afficher.",
+    "topAssets": "Principaux actifs",
+    "noAssetsYet": "Aucun actif pour le moment. Ajoutez votre premier actif pour commencer.",
+    "loading": "Chargement..."
+  },
+  "assetTypes": {
+    "us_stock": "Action US",
+    "cn_stock": "Action CN",
+    "etf": "ETF",
+    "crypto": "Crypto",
+    "gold": "Or",
+    "forex": "Devises",
+    "real_estate": "Immobilier",
+    "vehicle": "Véhicule",
+    "cash": "Liquidités",
+    "other": "Autre"
+  },
+  "assetTypesPlural": {
+    "us_stock": "Actions US",
+    "cn_stock": "Actions CN",
+    "etf": "ETFs",
+    "crypto": "Crypto",
+    "gold": "Or",
+    "forex": "Devises",
+    "real_estate": "Immobilier",
+    "vehicle": "Véhicules",
+    "cash": "Liquidités",
+    "other": "Autre"
+  },
+  "assetList": {
+    "noAssetsYet": "Aucun actif pour le moment",
+    "addFirstAsset": "Ajoutez votre premier actif pour commencer à suivre votre patrimoine."
+  },
+  "assetForm": {
+    "editAsset": "Modifier l'actif",
+    "addAsset": "Ajouter un actif",
+    "editDescription": "Mettez à jour les détails de votre actif.",
+    "addDescription": "Ajoutez un nouvel actif à suivre.",
+    "name": "Nom",
+    "namePlaceholder": "ex. Apple Inc.",
+    "nameRequired": "Le nom est requis",
+    "type": "Type",
+    "ticker": "Symbole",
+    "tickerPlaceholder": "ex. AAPL",
+    "quantity": "Quantité",
+    "quantityPlaceholder": "ex. 100",
+    "quantityError": "La quantité doit être un nombre positif",
+    "costPrice": "Prix de revient",
+    "optional": "Facultatif",
+    "costPriceError": "Le prix de revient doit être un nombre valide",
+    "costCurrency": "Devise du coût",
+    "manualPrice": "Prix manuel",
+    "manualPricePlaceholder": "Valeur actuelle par unité",
+    "manualPriceError": "Le prix manuel doit être un nombre valide",
+    "notes": "Notes",
+    "notesPlaceholder": "Notes facultatives...",
+    "cancel": "Annuler",
+    "saveChanges": "Enregistrer"
+  },
+  "assetCard": {
+    "editAsset": "Modifier l'actif",
+    "deleteAsset": "Supprimer l'actif",
+    "qty": "Qté :",
+    "manualUpdated": "Manuel - mis à jour {{time}}"
+  },
+  "assets": {
+    "title": "Actifs",
+    "addAsset": "Ajouter un actif",
+    "loading": "Chargement des actifs...",
+    "deleteTitle": "Supprimer l'actif",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer « {{name}} » ? Cette action est irréversible.",
+    "cancel": "Annuler",
+    "delete": "Supprimer"
+  },
+  "history": {
+    "title": "Historique",
+    "exportCSV": "Exporter en CSV",
+    "exportJSON": "Exporter en JSON",
+    "importJSON": "Importer un JSON",
+    "loading": "Chargement de l'historique...",
+    "noSnapshots": "Aucun instantané pour le moment",
+    "snapshotsAutoCreated": "Les instantanés sont créés automatiquement à la fin de chaque journée.",
+    "date": "Date",
+    "netWorth": "Patrimoine net",
+    "dailyChange": "Variation quotidienne"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "preferences": "Préférences",
+    "baseCurrency": "Devise de base",
+    "autoRefresh": "Intervalle d'actualisation",
+    "refreshOff": "Désactivé",
+    "refresh5min": "5 minutes",
+    "refresh15min": "15 minutes",
+    "refresh30min": "30 minutes",
+    "refresh1hr": "1 heure",
+    "theme": "Thème",
+    "themeDark": "Sombre",
+    "themeLight": "Clair",
+    "themeSystem": "Système",
+    "snapshotTime": "Heure de l'instantané",
+    "language": "Langue",
+    "dataManagement": "Gestion des données",
+    "exportAll": "Exporter toutes les données",
+    "importData": "Importer des données",
+    "clearAll": "Effacer toutes les données",
+    "clearWarning": "Cela supprimera définitivement tous vos actifs, instantanés et paramètres.",
+    "clearConfirmTitle": "Effacer toutes les données",
+    "clearConfirmMessage": "Êtes-vous sûr de vouloir supprimer toutes les données ? Cela supprimera tous les actifs, instantanés et paramètres. Cette action est irréversible.",
+    "cancel": "Annuler",
+    "deleteEverything": "Tout supprimer",
+    "loading": "Chargement des paramètres..."
+  },
+  "common": {
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "loading": "Chargement..."
+  }
+}

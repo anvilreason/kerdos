@@ -1,0 +1,140 @@
+{
+  "app": {
+    "name": "WealthLens"
+  },
+  "nav": {
+    "dashboard": "Painel",
+    "assets": "Ativos",
+    "history": "Histórico",
+    "settings": "Configurações",
+    "openMenu": "Abrir menu",
+    "navigation": "Navegação",
+    "refreshPrices": "Atualizar preços"
+  },
+  "dashboard": {
+    "totalNetWorth": "Patrimônio líquido total",
+    "todaysChange": "Variação de hoje",
+    "netWorthTrend": "Tendência do patrimônio líquido",
+    "noSnapshotData": "Nenhum dado disponível. Os registros são feitos diariamente.",
+    "netWorth": "Patrimônio líquido",
+    "assetAllocation": "Alocação de ativos",
+    "noAssetsToDisplay": "Nenhum ativo para exibir.",
+    "topAssets": "Principais ativos",
+    "noAssetsYet": "Nenhum ativo ainda. Adicione seu primeiro ativo para começar.",
+    "loading": "Carregando..."
+  },
+  "assetTypes": {
+    "us_stock": "Ação US",
+    "cn_stock": "Ação CN",
+    "etf": "ETF",
+    "crypto": "Cripto",
+    "gold": "Ouro",
+    "forex": "Câmbio",
+    "real_estate": "Imóvel",
+    "vehicle": "Veículo",
+    "cash": "Dinheiro",
+    "other": "Outro"
+  },
+  "assetTypesPlural": {
+    "us_stock": "Ações US",
+    "cn_stock": "Ações CN",
+    "etf": "ETFs",
+    "crypto": "Cripto",
+    "gold": "Ouro",
+    "forex": "Câmbio",
+    "real_estate": "Imóveis",
+    "vehicle": "Veículos",
+    "cash": "Dinheiro",
+    "other": "Outros"
+  },
+  "assetList": {
+    "noAssetsYet": "Nenhum ativo ainda",
+    "addFirstAsset": "Adicione seu primeiro ativo para começar a acompanhar seu patrimônio."
+  },
+  "assetForm": {
+    "editAsset": "Editar ativo",
+    "addAsset": "Adicionar ativo",
+    "editDescription": "Atualize os detalhes do seu ativo.",
+    "addDescription": "Adicione um novo ativo para acompanhar.",
+    "name": "Nome",
+    "namePlaceholder": "ex. Apple Inc.",
+    "nameRequired": "O nome é obrigatório",
+    "type": "Tipo",
+    "ticker": "Código",
+    "tickerPlaceholder": "ex. AAPL",
+    "quantity": "Quantidade",
+    "quantityPlaceholder": "ex. 100",
+    "quantityError": "A quantidade deve ser um número positivo",
+    "costPrice": "Preço de custo",
+    "optional": "Opcional",
+    "costPriceError": "O preço de custo deve ser um número válido",
+    "costCurrency": "Moeda de custo",
+    "manualPrice": "Preço manual",
+    "manualPricePlaceholder": "Valor atual por unidade",
+    "manualPriceError": "O preço manual deve ser um número válido",
+    "notes": "Notas",
+    "notesPlaceholder": "Notas opcionais...",
+    "cancel": "Cancelar",
+    "saveChanges": "Salvar alterações"
+  },
+  "assetCard": {
+    "editAsset": "Editar ativo",
+    "deleteAsset": "Excluir ativo",
+    "qty": "Qtd.:",
+    "manualUpdated": "Manual - atualizado {{time}}"
+  },
+  "assets": {
+    "title": "Ativos",
+    "addAsset": "Adicionar ativo",
+    "loading": "Carregando ativos...",
+    "deleteTitle": "Excluir ativo",
+    "deleteConfirm": "Tem certeza de que deseja excluir \"{{name}}\"? Esta ação não pode ser desfeita.",
+    "cancel": "Cancelar",
+    "delete": "Excluir"
+  },
+  "history": {
+    "title": "Histórico",
+    "exportCSV": "Exportar CSV",
+    "exportJSON": "Exportar JSON",
+    "importJSON": "Importar JSON",
+    "loading": "Carregando histórico...",
+    "noSnapshots": "Nenhum registro ainda",
+    "snapshotsAutoCreated": "Os registros são criados automaticamente ao final de cada dia.",
+    "date": "Data",
+    "netWorth": "Patrimônio líquido",
+    "dailyChange": "Variação diária"
+  },
+  "settings": {
+    "title": "Configurações",
+    "preferences": "Preferências",
+    "baseCurrency": "Moeda base",
+    "autoRefresh": "Intervalo de atualização",
+    "refreshOff": "Desativado",
+    "refresh5min": "5 minutos",
+    "refresh15min": "15 minutos",
+    "refresh30min": "30 minutos",
+    "refresh1hr": "1 hora",
+    "theme": "Tema",
+    "themeDark": "Escuro",
+    "themeLight": "Claro",
+    "themeSystem": "Sistema",
+    "snapshotTime": "Hora do registro",
+    "language": "Idioma",
+    "dataManagement": "Gerenciamento de dados",
+    "exportAll": "Exportar todos os dados",
+    "importData": "Importar dados",
+    "clearAll": "Limpar todos os dados",
+    "clearWarning": "Isso excluirá permanentemente todos os seus ativos, registros e configurações.",
+    "clearConfirmTitle": "Limpar todos os dados",
+    "clearConfirmMessage": "Tem certeza de que deseja excluir todos os dados? Isso removerá todos os ativos, registros e configurações. Esta ação não pode ser desfeita.",
+    "cancel": "Cancelar",
+    "deleteEverything": "Excluir tudo",
+    "loading": "Carregando configurações..."
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "save": "Salvar",
+    "delete": "Excluir",
+    "loading": "Carregando..."
+  }
+}
