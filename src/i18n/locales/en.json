@@ -282,6 +282,30 @@
       "button": "Exit demo"
     }
   },
+  "demo": {
+    "assets": {
+      "aapl": "Apple Inc.",
+      "msft": "Microsoft Corporation",
+      "nvda": "NVIDIA Corporation",
+      "googl": "Alphabet Inc. Class A",
+      "brkB": "Berkshire Hathaway Inc. Class B",
+      "moutai": "Kweichow Moutai",
+      "wuliangye": "Wuliangye Yibin",
+      "catl": "CATL (Contemporary Amperex)",
+      "btc": "Bitcoin",
+      "eth": "Ethereum",
+      "cashCny": "Cash (CNY)",
+      "cashUsd": "Cash (USD)",
+      "cashHkd": "Cash (HKD)",
+      "cashJpy": "Cash (JPY)",
+      "cashEur": "Cash (EUR)",
+      "realEstateCn": "Primary residence (Tier-1 city, China)",
+      "realEstateUs": "Overseas vacation home",
+      "gold": "Gold (ounce)",
+      "csi300Etf": "CSI 300 ETF",
+      "spy": "SPDR S&P 500 ETF"
+    }
+  },
   "onboarding": {
     "welcome": "Welcome to Kerdos",
     "subtitle": "Let's add your first asset — it only takes a minute.",

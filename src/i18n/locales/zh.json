@@ -282,6 +282,30 @@
       "button": "退出演示"
     }
   },
+  "demo": {
+    "assets": {
+      "aapl": "苹果",
+      "msft": "微软",
+      "nvda": "英伟达",
+      "googl": "谷歌 A 类",
+      "brkB": "伯克希尔 B 股",
+      "moutai": "贵州茅台",
+      "wuliangye": "五粮液",
+      "catl": "宁德时代",
+      "btc": "比特币",
+      "eth": "以太坊",
+      "cashCny": "人民币现金",
+      "cashUsd": "美元现金",
+      "cashHkd": "港币现金",
+      "cashJpy": "日元现金",
+      "cashEur": "欧元现金",
+      "realEstateCn": "一线城市自住房",
+      "realEstateUs": "海外度假房",
+      "gold": "黄金（盎司）",
+      "csi300Etf": "沪深 300 ETF",
+      "spy": "标普 500 ETF（SPY）"
+    }
+  },
   "onboarding": {
     "welcome": "欢迎使用 Kerdos",
     "subtitle": "让我们添加你的第一笔资产 —— 只要一分钟。",

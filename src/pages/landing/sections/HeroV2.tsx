@@ -17,6 +17,8 @@ import { useTranslation } from "react-i18next";
 import { useInView } from "@/utils/animations";
 import { buildDemoPortfolio } from "@/data/demo-portfolio";
 import { convertCurrency } from "@/utils/currency";
+import { scrollToAnchor } from "@/utils/scrollToAnchor";
+import { getAssetDisplayName } from "@/utils/assetDisplayName";
 import { useSettings } from "@/stores/settingsStore";
 import type { Snapshot } from "@/types/snapshot";
 import type { Asset } from "@/types/asset";
@@ -147,7 +149,7 @@ function MiniDashboard() {
         const a = byAsset.get(b.assetId);
         return {
           assetId: b.assetId,
-          name: a?.name ?? b.assetId,
+          name: a ? getAssetDisplayName(a, t) : b.assetId,
           ticker: a?.ticker ?? "",
           value: b.value,
           change: delta,
@@ -156,8 +158,10 @@ function MiniDashboard() {
       .sort((a, b) => b.value - a.value)
       .slice(0, 3);
   // Intentionally depend on `tick` so rows recompute; assets is stable.
+  // t is captured by closure and re-reads when language changes (the
+  // enclosing component re-renders on i18n change, which rebuilds `t`).
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tick, assets]);
+  }, [tick, assets, t, i18n.language]);
 
   const sparkSeries = visibleSnapshots.map((s) => s.totalNetWorth);
   const polyline = sparklinePoints(sparkSeries);
@@ -545,6 +549,7 @@ export default function HeroV2() {
           </a>
           <a
             href="#download"
+            onClick={scrollToAnchor("download")}
             style={secondaryCtaStyle}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "rgba(255,255,255,0.04)";

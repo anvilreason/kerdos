@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSettings, useUpdateSetting } from '@/stores/settingsStore';
+import { scrollToAnchor } from '@/utils/scrollToAnchor';
 
 interface RegionOption {
   code: string;
@@ -256,6 +257,7 @@ export default function Navbar() {
         >
           <a
             href="#download"
+            onClick={scrollToAnchor('download')}
             style={{
               ...navLinkStyle,
               color: activeSection === 'download' ? activeLinkColor : '#888891',
@@ -548,7 +550,16 @@ export default function Navbar() {
           >
             {t('nav.landing.tryDemo', 'Try Demo')}
           </a>
-          <a href="#download" style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }} onClick={() => setMenuOpen(false)}>{t('nav.landing.download', 'Download')}</a>
+          <a
+            href="#download"
+            style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }}
+            onClick={(e) => {
+              setMenuOpen(false);
+              scrollToAnchor('download')(e);
+            }}
+          >
+            {t('nav.landing.download', 'Download')}
+          </a>
           <a href="#pricing" style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }} onClick={() => setMenuOpen(false)}>{t('nav.landing.pricing', 'Pricing')}</a>
           <a href="https://github.com/kerdos" target="_blank" rel="noopener noreferrer" style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }}>{t('nav.landing.openSource', 'Open Source')}</a>
           <div style={{ height: 1, background: '#1e1e1e', margin: '8px 0' }} />

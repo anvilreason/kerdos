@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import type { Asset, AssetType } from "@/types/asset";
 import type { PriceResult } from "@/types/price";
 import { convertCurrency } from "@/utils/currency";
+import { getAssetDisplayName } from "@/utils/assetDisplayName";
 import { formatCurrency } from "./NetWorthCard";
 
 /**
@@ -612,7 +613,7 @@ function HoldingsRow({
             fontWeight: 500,
           }}
         >
-          {asset.name}
+          {getAssetDisplayName(asset, t)}
         </span>
         <span
           style={{
