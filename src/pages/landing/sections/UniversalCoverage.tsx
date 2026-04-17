@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useInView } from '../../../utils/animations';
 
 interface RegionalAsset {
@@ -8,35 +9,153 @@ interface RegionalAsset {
 }
 
 const regionalAssets: Record<string, RegionalAsset> = {
-  us: { label: 'Bay Area Home', value: '$1,850,000', badge: '\u26A0\uFE0F Manual \u00B7 Last updated 14 days ago' },
-  cn: { label: '\u4E0A\u6D77\u4E8C\u73AF\u623F\u4EA7', value: '\u00A58,500,000', badge: '\u26A0\uFE0F \u624B\u52A8 \u00B7 \u4E0A\u6B21\u66F4\u65B0 14 \u5929\u524D' },
-  eu: { label: 'Munich Apartment', value: '\u20AC650,000', badge: '\u26A0\uFE0F Manual \u00B7 Last updated 14 days ago' },
-  gb: { label: 'London Flat', value: '\u00A3520,000', badge: '\u26A0\uFE0F Manual \u00B7 Last updated 14 days ago' },
-  jp: { label: '\u6771\u4EAC\u30DE\u30F3\u30B7\u30E7\u30F3', value: '\u00A575,000,000', badge: '\u26A0\uFE0F \u624B\u52D5 \u00B7 \u6700\u7D42\u66F4\u65B0 14 \u65E5\u524D' },
-  hk: { label: '\u9999\u6E2F\u4F4F\u5B85', value: 'HK$8,000,000', badge: '\u26A0\uFE0F \u624B\u52D5 \u00B7 \u4E0A\u6B21\u66F4\u65B0 14 \u5929\u524D' },
+  us: {
+    label: 'Bay Area Home',
+    value: '$1,850,000',
+    badge: '\u26A0\uFE0F Manual \u00B7 Last updated 14 days ago',
+  },
+  cn: {
+    label: '\u4E0A\u6D77\u4E8C\u73AF\u623F\u4EA7',
+    value: '\u00A58,500,000',
+    badge: '\u26A0\uFE0F \u624B\u52A8 \u00B7 \u4E0A\u6B21\u66F4\u65B0 14 \u5929\u524D',
+  },
+  eu: {
+    label: 'Munich Apartment',
+    value: '\u20AC650,000',
+    badge: '\u26A0\uFE0F Manual \u00B7 Last updated 14 days ago',
+  },
+  gb: {
+    label: 'London Flat',
+    value: '\u00A3520,000',
+    badge: '\u26A0\uFE0F Manual \u00B7 Last updated 14 days ago',
+  },
+  jp: {
+    label: '\u6771\u4EAC\u30DE\u30F3\u30B7\u30E7\u30F3',
+    value: '\u00A575,000,000',
+    badge: '\u26A0\uFE0F \u624B\u52D5 \u00B7 \u6700\u7D42\u66F4\u65B0 14 \u65E5\u524D',
+  },
+  hk: {
+    label: '\u9999\u6E2F\u4F4F\u5B85',
+    value: 'HK$8,000,000',
+    badge: '\u26A0\uFE0F \u624B\u52D5 \u00B7 \u4E0A\u6B21\u66F4\u65B0 14 \u5929\u524D',
+  },
 };
 
-const assetTypes = [
-  { icon: '\uD83D\uDCC8', label: 'US Stocks', color: 'var(--color-us-stock)' },
-  { icon: '\uD83C\uDC04', label: 'A-Shares', color: 'var(--color-cn-stock)' },
-  { icon: '\uD83D\uDCE6', label: 'ETF', color: 'var(--color-etf)' },
-  { icon: '\u20BF', label: 'Crypto', color: 'var(--color-crypto)' },
-  { icon: '\uD83E\uDD47', label: 'Gold', color: 'var(--color-gold)' },
-  { icon: '\uD83D\uDCB1', label: 'Forex', color: 'var(--color-forex)' },
-  { icon: '\uD83C\uDFE0', label: 'Real Estate', color: 'var(--color-real-estate)' },
-  { icon: '\uD83D\uDE97', label: 'Vehicle', color: 'var(--color-vehicle)' },
-  { icon: '\uD83D\uDCB5', label: 'Cash', color: 'var(--color-cash)' },
-  { icon: '\u25EF', label: 'Other', color: 'var(--color-other)' },
+interface AssetTypeDef {
+  icon: string;
+  labelKey: string;
+  labelFallback: string;
+  color: string;
+}
+
+const assetTypes: AssetTypeDef[] = [
+  {
+    icon: '\uD83D\uDCC8',
+    labelKey: 'landing.coverage.types.usStocks',
+    labelFallback: 'US Stocks',
+    color: 'var(--color-us-stock)',
+  },
+  {
+    icon: '\uD83C\uDC04',
+    labelKey: 'landing.coverage.types.aShares',
+    labelFallback: 'A-Shares',
+    color: 'var(--color-cn-stock)',
+  },
+  {
+    icon: '\uD83D\uDCE6',
+    labelKey: 'landing.coverage.types.etf',
+    labelFallback: 'ETF',
+    color: 'var(--color-etf)',
+  },
+  {
+    icon: '\u20BF',
+    labelKey: 'landing.coverage.types.crypto',
+    labelFallback: 'Crypto',
+    color: 'var(--color-crypto)',
+  },
+  {
+    icon: '\uD83E\uDD47',
+    labelKey: 'landing.coverage.types.gold',
+    labelFallback: 'Gold',
+    color: 'var(--color-gold)',
+  },
+  {
+    icon: '\uD83D\uDCB1',
+    labelKey: 'landing.coverage.types.forex',
+    labelFallback: 'Forex',
+    color: 'var(--color-forex)',
+  },
+  {
+    icon: '\uD83C\uDFE0',
+    labelKey: 'landing.coverage.types.realEstate',
+    labelFallback: 'Real Estate',
+    color: 'var(--color-real-estate)',
+  },
+  {
+    icon: '\uD83D\uDE97',
+    labelKey: 'landing.coverage.types.vehicle',
+    labelFallback: 'Vehicle',
+    color: 'var(--color-vehicle)',
+  },
+  {
+    icon: '\uD83D\uDCB5',
+    labelKey: 'landing.coverage.types.cash',
+    labelFallback: 'Cash',
+    color: 'var(--color-cash)',
+  },
+  {
+    icon: '\u25EF',
+    labelKey: 'landing.coverage.types.other',
+    labelFallback: 'Other',
+    color: 'var(--color-other)',
+  },
 ];
 
-const stats = [
-  { icon: '\uD83D\uDCCA', value: '10', label: 'asset types \u2014 fully supported' },
-  { icon: '\uD83D\uDCB1', value: '50+', label: 'currencies \u2014 auto-converted to base' },
-  { icon: '\u26A1', value: '5', label: 'price sources \u2014 all free, no API key needed' },
-  { icon: '\uD83D\uDD12', value: '0 bytes', label: 'uploaded \u2014 to any server, ever' },
+interface StatDef {
+  icon: string;
+  value: string;
+  labelKey: string;
+  labelFallback: string;
+}
+
+const stats: StatDef[] = [
+  {
+    icon: '\uD83D\uDCCA',
+    value: '10',
+    labelKey: 'landing.coverage.stats.types',
+    labelFallback: 'asset types \u2014 fully supported',
+  },
+  {
+    icon: '\uD83D\uDCB1',
+    value: '50+',
+    labelKey: 'landing.coverage.stats.currencies',
+    labelFallback: 'currencies \u2014 auto-converted to base',
+  },
+  {
+    icon: '\u26A1',
+    value: '5',
+    labelKey: 'landing.coverage.stats.sources',
+    labelFallback: 'price sources \u2014 all free, no API key needed',
+  },
+  {
+    icon: '\uD83D\uDD12',
+    value: '0 bytes',
+    labelKey: 'landing.coverage.stats.uploaded',
+    labelFallback: 'uploaded \u2014 to any server, ever',
+  },
 ];
 
-function AssetTile({ icon, label, color, index }: { icon: string; label: string; color: string; index: number }) {
+function AssetTile({
+  icon,
+  label,
+  color,
+  index,
+}: {
+  icon: string;
+  label: string;
+  color: string;
+  index: number;
+}) {
   const { ref, inView } = useInView(0.1);
   return (
     <div
@@ -81,12 +200,21 @@ function detectDefaultRegion(): string {
     if (lang.startsWith('zh')) return 'cn';
     if (lang.startsWith('ja')) return 'jp';
     if (lang.startsWith('en-gb')) return 'gb';
-    if (lang.startsWith('de') || lang.startsWith('fr') || lang.startsWith('es') || lang.startsWith('it')) return 'eu';
-  } catch { /* ignore */ }
+    if (
+      lang.startsWith('de') ||
+      lang.startsWith('fr') ||
+      lang.startsWith('es') ||
+      lang.startsWith('it')
+    )
+      return 'eu';
+  } catch {
+    /* ignore */
+  }
   return 'us';
 }
 
 export default function UniversalCoverage() {
+  const { t } = useTranslation();
   const { ref, inView } = useInView(0.1);
   const [region, setRegion] = useState<string>(detectDefaultRegion);
 
@@ -134,7 +262,13 @@ export default function UniversalCoverage() {
             }}
           >
             {assetTypes.map((at, i) => (
-              <AssetTile key={at.label} icon={at.icon} label={at.label} color={at.color} index={i} />
+              <AssetTile
+                key={at.labelKey}
+                icon={at.icon}
+                label={t(at.labelKey, at.labelFallback)}
+                color={at.color}
+                index={i}
+              />
             ))}
           </div>
 
@@ -155,10 +289,23 @@ export default function UniversalCoverage() {
             }}
           >
             <span style={{ fontSize: 18 }}>{'\uD83C\uDFE0'}</span>
-            <span style={{ fontSize: 14, fontWeight: 600, color: 'var(--kerdos-text-primary)' }}>
+            <span
+              style={{
+                fontSize: 14,
+                fontWeight: 600,
+                color: 'var(--kerdos-text-primary)',
+              }}
+            >
               {asset.label}
             </span>
-            <span style={{ fontSize: 14, fontWeight: 600, color: 'var(--kerdos-text-primary)', fontFamily: 'var(--font-monospace)' }}>
+            <span
+              style={{
+                fontSize: 14,
+                fontWeight: 600,
+                color: 'var(--kerdos-text-primary)',
+                fontFamily: 'var(--font-monospace)',
+              }}
+            >
               {asset.value}
             </span>
             <span
@@ -197,7 +344,7 @@ export default function UniversalCoverage() {
               display: 'block',
             }}
           >
-            Universal Coverage
+            {t('landing.coverage.tag', 'Universal Coverage')}
           </span>
 
           <h2
@@ -209,11 +356,11 @@ export default function UniversalCoverage() {
               margin: '0 0 24px',
             }}
           >
-            Financial assets.
+            {t('landing.coverage.titleLine1', 'Financial assets.')}
             <br />
-            Physical assets.
+            {t('landing.coverage.titleLine2', 'Physical assets.')}
             <br />
-            Everything.
+            {t('landing.coverage.titleLine3', 'Everything.')}
           </h2>
 
           <p
@@ -225,7 +372,10 @@ export default function UniversalCoverage() {
               margin: '0 0 16px',
             }}
           >
-            Most net worth tools only track what they can see via bank APIs. Kerdos is different &mdash; you enter what you own, and we value it. Your Shanghai apartment, your gold coins, your BTC cold wallet: all in one number.
+            {t(
+              'landing.coverage.body1',
+              'Most net worth tools only track what they can see via bank APIs. Kerdos is different — you enter what you own, and we value it. Your Shanghai apartment, your gold coins, your BTC cold wallet: all in one number.',
+            )}
           </p>
           <p
             style={{
@@ -236,7 +386,10 @@ export default function UniversalCoverage() {
               margin: '0 0 36px',
             }}
           >
-            For assets without live prices &mdash; real estate, vehicles, art &mdash; Kerdos lets you manually set a value. We&rsquo;ll remind you when it&rsquo;s getting stale, so your net worth stays honest.
+            {t(
+              'landing.coverage.body2',
+              'For assets without live prices — real estate, vehicles, art — Kerdos lets you manually set a value. We\u2019ll remind you when it\u2019s getting stale, so your net worth stays honest.',
+            )}
           </p>
 
           {/* Stats grid 2x2 */}
@@ -248,7 +401,7 @@ export default function UniversalCoverage() {
             }}
           >
             {stats.map((stat) => (
-              <div key={stat.label}>
+              <div key={stat.labelKey}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
                   <span style={{ fontSize: 18 }}>{stat.icon}</span>
                   <span
@@ -269,7 +422,7 @@ export default function UniversalCoverage() {
                     color: 'var(--kerdos-text-secondary)',
                   }}
                 >
-                  {stat.label}
+                  {t(stat.labelKey, stat.labelFallback)}
                 </span>
               </div>
             ))}

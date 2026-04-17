@@ -164,7 +164,12 @@ export default function DemoWindow() {
         animation: { duration: 300 },
       },
     });
-  }, []); // intentionally no deps — we init once and update data
+    // Chart instance is created once per mount; data mutations happen via
+    // `chartInstance.data = ...; chartInstance.update()` below, so we
+    // intentionally don't re-run this effect when `currency` or history
+    // change. Re-creating the Chart would thrash the canvas.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Initialize sparkline
   const initSparkline = useCallback(() => {

@@ -1,4 +1,14 @@
+import { isTauri } from '@/services/providers/adapter';
+
 export default function Hero() {
+  // W4-02: hide the "Download" CTA when the Landing is rendered inside the
+  // desktop app itself — a user already running Kerdos.app has no reason to
+  // see a download button. Web users still see the full CTA.
+  // TODO(W4-03): real download URLs + a dedicated <section id="download">
+  // section. For now we anchor to #download so the link resolves to an empty
+  // target gracefully when the section is wired up later.
+  const showDownloadCta = !isTauri;
+
   return (
     <section
       id="hero"
@@ -46,56 +56,58 @@ export default function Hero() {
           Real-time prices. No accounts. No cloud. No compromise.
         </p>
 
-        {/* CTA block */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 20,
-            flexWrap: 'wrap',
-            marginBottom: 64,
-          }}
-        >
-          <a
-            href="#"
+        {/* CTA block — hidden inside the desktop app (W4-02). */}
+        {showDownloadCta && (
+          <div
             style={{
-              display: 'inline-flex',
+              display: 'flex',
               alignItems: 'center',
-              gap: 8,
-              padding: '14px 32px',
-              borderRadius: 6,
-              background: '#c9972a',
-              color: '#0a0d12',
-              fontSize: 16,
-              fontWeight: 600,
-              textDecoration: 'none',
-              transition: 'background 0.2s',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#e0ab35';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#c9972a';
+              justifyContent: 'center',
+              gap: 20,
+              flexWrap: 'wrap',
+              marginBottom: 64,
             }}
           >
-            Download for macOS
-          </a>
-          <a
-            href="#pricing"
-            style={{
-              fontSize: 14,
-              color: '#888891',
-              fontWeight: 500,
-              textDecoration: 'none',
-              transition: 'color 0.2s',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = '#dcddde')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = '#888891')}
-          >
-            More platforms &darr;
-          </a>
-        </div>
+            <a
+              href="#download"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                padding: '14px 32px',
+                borderRadius: 6,
+                background: '#c9972a',
+                color: '#0a0d12',
+                fontSize: 16,
+                fontWeight: 600,
+                textDecoration: 'none',
+                transition: 'background 0.2s',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = '#e0ab35';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = '#c9972a';
+              }}
+            >
+              Download for macOS
+            </a>
+            <a
+              href="#download"
+              style={{
+                fontSize: 14,
+                color: '#888891',
+                fontWeight: 500,
+                textDecoration: 'none',
+                transition: 'color 0.2s',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#dcddde')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = '#888891')}
+            >
+              More platforms &darr;
+            </a>
+          </div>
+        )}
 
         {/* Hero visual — dashboard mockup */}
         <div

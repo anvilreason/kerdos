@@ -1,25 +1,53 @@
+import { useTranslation } from 'react-i18next';
 import { useInView } from '../../../utils/animations';
 import DemoWindow from '../demo/DemoWindow';
 
-const cards = [
+interface FeatureCardData {
+  icon: string;
+  headlineKey: string;
+  headlineFallback: string;
+  bodyKey: string;
+  bodyFallback: string;
+}
+
+const cards: FeatureCardData[] = [
   {
     icon: '\u26A1',
-    headline: 'Live prices, always fresh',
-    body: 'US stocks via Yahoo Finance, crypto via CoinGecko, gold via Metals.live \u2014 all updated automatically.',
+    headlineKey: 'landing.features.cards.live.headline',
+    headlineFallback: 'Live prices, always fresh',
+    bodyKey: 'landing.features.cards.live.body',
+    bodyFallback:
+      'US stocks via Yahoo Finance, crypto via CoinGecko, gold via Metals.live \u2014 all updated automatically.',
   },
   {
     icon: '\uD83E\uDDEE',
-    headline: 'Instant calculation',
-    body: 'Add your holdings once. Kerdos multiplies quantity \u00D7 live price \u00D7 exchange rate and keeps your total current.',
+    headlineKey: 'landing.features.cards.calc.headline',
+    headlineFallback: 'Instant calculation',
+    bodyKey: 'landing.features.cards.calc.body',
+    bodyFallback:
+      'Add your holdings once. Kerdos multiplies quantity \u00D7 live price \u00D7 exchange rate and keeps your total current.',
   },
   {
     icon: '\uD83D\uDCF8',
-    headline: 'Automatic history',
-    body: 'Kerdos silently saves a daily snapshot of your net worth. Watch it compound over time without any effort.',
+    headlineKey: 'landing.features.cards.history.headline',
+    headlineFallback: 'Automatic history',
+    bodyKey: 'landing.features.cards.history.body',
+    bodyFallback:
+      'Kerdos silently saves a daily snapshot of your net worth. Watch it compound over time without any effort.',
   },
 ];
 
-function FeatureCard({ icon, headline, body, index }: { icon: string; headline: string; body: string; index: number }) {
+function FeatureCard({
+  icon,
+  headline,
+  body,
+  index,
+}: {
+  icon: string;
+  headline: string;
+  body: string;
+  index: number;
+}) {
   const { ref, inView } = useInView(0.15);
   return (
     <div
@@ -62,6 +90,7 @@ function FeatureCard({ icon, headline, body, index }: { icon: string; headline: 
 }
 
 export default function FeatureShowcase() {
+  const { t } = useTranslation();
   const { ref: sectionRef, inView: sectionInView } = useInView(0.1);
 
   return (
@@ -94,9 +123,12 @@ export default function FeatureShowcase() {
             transition: 'opacity 0.6s ease, transform 0.6s ease',
           }}
         >
-          From a single stock to a global portfolio,
+          {t(
+            'landing.features.titleLine1',
+            'From a single stock to a global portfolio,',
+          )}
           <br />
-          Kerdos has you covered.
+          {t('landing.features.titleLine2', 'Kerdos has you covered.')}
         </h2>
 
         {/* Subheadline */}
@@ -114,7 +146,10 @@ export default function FeatureShowcase() {
             transition: 'opacity 0.6s ease 100ms, transform 0.6s ease 100ms',
           }}
         >
-          Add your assets once. Watch your net worth update in real time &mdash; stocks, crypto, gold, forex, and anything you own manually.
+          {t(
+            'landing.features.subtitle',
+            'Add your assets once. Watch your net worth update in real time — stocks, crypto, gold, forex, and anything you own manually.',
+          )}
         </p>
 
         {/* Context bar */}
@@ -129,8 +164,19 @@ export default function FeatureShowcase() {
             transition: 'opacity 0.6s ease 200ms, transform 0.6s ease 200ms',
           }}
         >
-          <span style={{ background: 'rgba(201,151,42,0.1)', border: '1px solid rgba(201,151,42,0.2)', borderRadius: 8, padding: '8px 16px', display: 'inline-block' }}>
-            Live demo — NVDA, AAPL, BTC, ETH + Bay Area home + Tesla &nbsp;&middot;&nbsp; Prices shown in USD
+          <span
+            style={{
+              background: 'rgba(201,151,42,0.1)',
+              border: '1px solid rgba(201,151,42,0.2)',
+              borderRadius: 8,
+              padding: '8px 16px',
+              display: 'inline-block',
+            }}
+          >
+            {t(
+              'landing.features.demoBadge',
+              'Live demo — NVDA, AAPL, BTC, ETH + Bay Area home + Tesla · Prices shown in USD',
+            )}
           </span>
         </div>
 
@@ -157,7 +203,10 @@ export default function FeatureShowcase() {
             margin: '0 0 56px',
           }}
         >
-          Prices simulate real market volatility — updated every 2.5 seconds. Click any asset to see details.
+          {t(
+            'landing.features.caption',
+            'Prices simulate real market volatility — updated every 2.5 seconds. Click any asset to see details.',
+          )}
         </p>
 
         {/* Three Sub-Feature Cards */}
@@ -169,7 +218,13 @@ export default function FeatureShowcase() {
           }}
         >
           {cards.map((card, i) => (
-            <FeatureCard key={card.headline} icon={card.icon} headline={card.headline} body={card.body} index={i} />
+            <FeatureCard
+              key={card.headlineKey}
+              icon={card.icon}
+              headline={t(card.headlineKey, card.headlineFallback)}
+              body={t(card.bodyKey, card.bodyFallback)}
+              index={i}
+            />
           ))}
         </div>
       </div>

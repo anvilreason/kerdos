@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Tauri 2 desktop build artifacts
+src-tauri/target/
+src-tauri/gen/schemas/
+
+# Packaged desktop bundles (produced by `tauri build`, not committed)
+*.dmg
+*.exe
+*.AppImage
+*.msi

@@ -1,6 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import { useInView } from '@/utils/animations';
 
 export default function FinalCTA() {
+  const { t } = useTranslation();
   const { ref, inView } = useInView(0.1);
 
   return (
@@ -25,9 +27,9 @@ export default function FinalCTA() {
             transition: 'opacity 0.6s, transform 0.6s',
           }}
         >
-          Track your wealth.
+          {t('landing.finalCta.titleLine1', 'Track your wealth.')}
           <br />
-          Keep it private.
+          {t('landing.finalCta.titleLine2', 'Keep it private.')}
         </h2>
 
         {/* Subheadline */}
@@ -44,7 +46,10 @@ export default function FinalCTA() {
             transition: 'opacity 0.6s 0.1s, transform 0.6s 0.1s',
           }}
         >
-          Kerdos is free, open source, and runs entirely on your device. No account. No cloud. No compromise.
+          {t(
+            'landing.finalCta.subtitle',
+            'Kerdos is free, open source, and runs entirely on your device. No account. No cloud. No compromise.',
+          )}
         </p>
 
         {/* CTA buttons */}
@@ -81,7 +86,7 @@ export default function FinalCTA() {
               e.currentTarget.style.background = '#c9972a';
             }}
           >
-            Download for macOS
+            {t('landing.finalCta.downloadBtn', 'Download for macOS')}
           </a>
           <a
             href="#"
@@ -107,7 +112,7 @@ export default function FinalCTA() {
               e.currentTarget.style.borderColor = '#303033';
             }}
           >
-            View on GitHub &#8599;
+            {t('landing.finalCta.githubBtn', 'View on GitHub \u2197')}
           </a>
         </div>
 
@@ -121,7 +126,10 @@ export default function FinalCTA() {
             transition: 'opacity 0.6s 0.3s',
           }}
         >
-          macOS &middot; Windows &middot; Linux &middot; Browser PWA
+          {t(
+            'landing.finalCta.platforms',
+            'macOS · Windows · Linux · Browser PWA',
+          )}
         </p>
         <p
           style={{
@@ -132,7 +140,7 @@ export default function FinalCTA() {
             transition: 'opacity 0.6s 0.35s',
           }}
         >
-          MIT License &middot; Open Source Forever
+          {t('landing.finalCta.license', 'MIT License · Open Source Forever')}
         </p>
       </div>
     </section>

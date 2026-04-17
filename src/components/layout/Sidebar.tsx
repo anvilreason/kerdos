@@ -90,6 +90,7 @@ function getDailyChangePct(
 const NAV_ITEMS = [
   { to: "/app", label: "Dashboard", emoji: "\u{1F4CA}" },
   { to: "/app/assets", label: "All Assets", emoji: "\u{1F4BC}" },
+  { to: "/app/transactions", label: "Cash Flow", emoji: "\u{1F4B5}" },
   { to: "/app/history", label: "History", emoji: "\u{1F4C8}" },
   { to: "/app/settings", label: "Settings", emoji: "\u2699\uFE0F" },
 ] as const;

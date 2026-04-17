@@ -1,0 +1,43 @@
+name = "kerdos-quote-relay"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# -----------------------------------------------------------------------------
+# KV 命名空间占位（本地 dev 已禁用，走内存兜底）
+# 生产部署前：取消下方两段注释，然后运行：
+#   wrangler kv:namespace create PRICE_CACHE
+#   wrangler kv:namespace create PRICE_CACHE --preview
+#   wrangler kv:namespace create RATE_LIMIT
+#   wrangler kv:namespace create RATE_LIMIT --preview
+# 把返回的 id / preview_id 填回来。
+# 不配置 KV 时，Worker 自动降级为内存缓存（代码已支持）。
+# -----------------------------------------------------------------------------
+# [[kv_namespaces]]
+# binding = "PRICE_CACHE"
+# id = "REPLACE_WITH_PRODUCTION_KV_ID"
+# preview_id = "REPLACE_WITH_PREVIEW_KV_ID"
+#
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT"
+# id = "REPLACE_WITH_PRODUCTION_RATELIMIT_KV_ID"
+# preview_id = "REPLACE_WITH_PREVIEW_RATELIMIT_KV_ID"
+
+# -----------------------------------------------------------------------------
+# 本地 dev 变量（非敏感）。敏感值请用 `wrangler secret put KEY`。
+# -----------------------------------------------------------------------------
+[vars]
+RATE_LIMIT_PER_MIN = "60"
+LOG_LEVEL = "info"
+
+# 预留：如果后续接入收费源（如 Alpha Vantage / MetalPriceAPI 付费 Key），
+# 用 wrangler secret put METAL_PRICE_API_KEY 方式注入，不要写死在这里。
+
+[observability]
+enabled = true
+
+# -----------------------------------------------------------------------------
+# 触发器占位（W1 暂不启用 cron 预热）
+# [triggers]
+# crons = ["*/5 * * * *"]  # 每 5 分钟预热热门标的
+# -----------------------------------------------------------------------------

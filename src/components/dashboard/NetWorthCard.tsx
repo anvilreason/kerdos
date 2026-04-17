@@ -5,7 +5,11 @@ interface NetWorthCardProps {
   currency: string;
 }
 
-function formatCurrency(value: number, currency: string): string {
+// Exported alongside the component for DailyChangeCard to reuse the same
+// symbol table. Extracting to a separate file is not worth the churn for
+// a 15-line helper used by one sibling.
+// eslint-disable-next-line react-refresh/only-export-components
+export function formatCurrency(value: number, currency: string): string {
   const symbols: Record<string, string> = {
     USD: "$",
     CNY: "\u00a5",
@@ -58,4 +62,3 @@ export default function NetWorthCard({
   );
 }
 
-export { formatCurrency };

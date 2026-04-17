@@ -90,14 +90,14 @@ export default function History() {
 
   function handleExportCSV() {
     const csv = exportToCSV(filteredSnapshots);
-    downloadFile(csv, `wealthlens-history-${formatDate(new Date())}.csv`, "text/csv");
+    downloadFile(csv, `kerdos-history-${formatDate(new Date())}.csv`, "text/csv");
   }
 
   function handleExportJSON() {
     const json = exportToJSON({ assets, snapshots: filteredSnapshots });
     downloadFile(
       json,
-      `wealthlens-export-${formatDate(new Date())}.json`,
+      `kerdos-export-${formatDate(new Date())}.json`,
       "application/json",
     );
   }

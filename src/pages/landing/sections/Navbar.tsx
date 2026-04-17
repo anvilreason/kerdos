@@ -1,44 +1,103 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSettings, useUpdateSetting } from '@/stores/settingsStore';
 
 interface RegionOption {
   code: string;
   flag: string;
-  label: string;
+  labelKey: string;  // i18n key; Navbar labels themselves are translated
   currency: string;
+  lang: string;      // matching i18next language code
 }
 
+/**
+ * Region presets. Each bundles a language + currency so a single pick
+ * updates the whole app (i18n + settings.baseCurrency together).
+ *
+ * When user picks "EU", we stay on English because the other EU
+ * locale files (de/fr/es/...) have limited coverage. Users wanting a
+ * specific language can still override via Settings → Language.
+ */
 const REGIONS: RegionOption[] = [
-  { code: 'us', flag: '🇺🇸', label: 'United States', currency: 'USD' },
-  { code: 'cn', flag: '🇨🇳', label: '中国大陆', currency: 'CNY' },
-  { code: 'eu', flag: '🇪🇺', label: 'Europe', currency: 'EUR' },
-  { code: 'gb', flag: '🇬🇧', label: 'United Kingdom', currency: 'GBP' },
-  { code: 'jp', flag: '🇯🇵', label: '日本', currency: 'JPY' },
-  { code: 'hk', flag: '🇭🇰', label: '香港', currency: 'HKD' },
+  { code: 'us', flag: '🇺🇸', labelKey: 'nav.region.us', currency: 'USD', lang: 'en' },
+  { code: 'cn', flag: '🇨🇳', labelKey: 'nav.region.cn', currency: 'CNY', lang: 'zh' },
+  { code: 'hk', flag: '🇭🇰', labelKey: 'nav.region.hk', currency: 'HKD', lang: 'zh' },
+  { code: 'jp', flag: '🇯🇵', labelKey: 'nav.region.jp', currency: 'JPY', lang: 'ja' },
+  { code: 'gb', flag: '🇬🇧', labelKey: 'nav.region.gb', currency: 'GBP', lang: 'en' },
+  { code: 'eu', flag: '🇪🇺', labelKey: 'nav.region.eu', currency: 'EUR', lang: 'en' },
 ];
 
+/** Infer the best region from browser timezone + language. First-run only. */
 function detectRegion(): string {
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-  const lang = navigator.language;
+  const lang = typeof navigator !== 'undefined' ? navigator.language : 'en';
   if (tz.includes('Asia/Shanghai') || tz.includes('Asia/Chongqing') || lang.startsWith('zh-CN')) return 'cn';
   if (tz.includes('Asia/Hong_Kong') || lang === 'zh-HK') return 'hk';
   if (tz.includes('Asia/Tokyo')) return 'jp';
-  if (tz.includes('Europe')) return 'eu';
   if (tz.includes('London')) return 'gb';
+  if (tz.includes('Europe')) return 'eu';
   return 'us';
 }
 
+/**
+ * Pick a region whose (lang, currency) pair matches current settings.
+ * If nothing matches exactly, return null so callers fall back to detect.
+ */
+function regionFromState(lang: string, currency: string): RegionOption | null {
+  return (
+    REGIONS.find((r) => r.lang === lang && r.currency === currency) ??
+    REGIONS.find((r) => r.currency === currency) ??
+    null
+  );
+}
+
 export default function Navbar() {
+  const { t, i18n } = useTranslation();
+  const { settings } = useSettings();
+  const updateSetting = useUpdateSetting();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [regionOpen, setRegionOpen] = useState(false);
-  const [selectedRegion, setSelectedRegion] = useState('us');
   const [activeSection, setActiveSection] = useState('');
   const regionRef = useRef<HTMLDivElement>(null);
 
-  // Auto-detect region on mount
+  // Derive active region from the *authoritative* state (i18n + settings).
+  // If they don't match any preset, fall back to timezone detection (which
+  // itself defaults to 'us'). This means: once the user picks a region,
+  // Navbar reflects their choice everywhere, and Settings-page changes
+  // sync here too.
+  const selectedRegion =
+    regionFromState(i18n.language, settings.baseCurrency)?.code ??
+    detectRegion();
+
+  // On first ever visit — if Dexie hasn't loaded yet, settings.baseCurrency
+  // is still the 'USD' default. Auto-apply the detected region then, so a
+  // Chinese user doesn't land on an English+USD page before touching
+  // anything. Guarded by a ref so we only auto-apply once.
+  const autoAppliedRef = useRef(false);
   useEffect(() => {
-    const detected = detectRegion();
-    setSelectedRegion(detected);
+    if (autoAppliedRef.current) return;
+    // Wait until settings have actually loaded from Dexie before deciding.
+    // `useSettings` returns the default when `rows === undefined` (loading),
+    // which we can't distinguish from "user has the default". We use a
+    // one-shot timer: after 400ms, assume settings landed; if they still
+    // look like the very first-run defaults (USD + en), apply detection.
+    const timer = window.setTimeout(() => {
+      autoAppliedRef.current = true;
+      const langIsDefault = i18n.language === 'en' || i18n.language === 'en-US';
+      const currencyIsDefault = settings.baseCurrency === 'USD';
+      if (langIsDefault && currencyIsDefault) {
+        const region = REGIONS.find((r) => r.code === detectRegion());
+        if (region && region.code !== 'us') {
+          void i18n.changeLanguage(region.lang);
+          void updateSetting('baseCurrency', region.currency);
+        }
+      }
+    }, 400);
+    return () => window.clearTimeout(timer);
+    // Run once on mount; deps intentionally empty.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Scroll listener for navbar background
@@ -52,7 +111,9 @@ export default function Navbar() {
 
   // IntersectionObserver for active link highlighting
   useEffect(() => {
-    const sectionIds = ['download', 'pricing', 'sync', 'enterprise'];
+    // TODO(W4): wire real section ids once Landing is rewritten (T-W4-03).
+    // Current sections don't expose these ids yet; array kept minimal on purpose.
+    const sectionIds = ['download', 'pricing'];
     const observers: IntersectionObserver[] = [];
 
     sectionIds.forEach((id) => {
@@ -86,18 +147,27 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleRegionSelect = useCallback((code: string) => {
-    setSelectedRegion(code);
-    setRegionOpen(false);
-    const region = REGIONS.find((r) => r.code === code);
-    if (region) {
-      window.dispatchEvent(
-        new CustomEvent('kerdos-region-change', {
-          detail: { currency: region.currency, region: region.code },
-        })
-      );
-    }
-  }, []);
+  const handleRegionSelect = useCallback(
+    async (code: string) => {
+      setRegionOpen(false);
+      const region = REGIONS.find((r) => r.code === code);
+      if (!region) return;
+      // Apply language + currency atomically. Both are persisted:
+      //   · i18next writes to localStorage via languageDetector
+      //   · settings.baseCurrency writes to Dexie
+      try {
+        await i18n.changeLanguage(region.lang);
+      } catch (err) {
+        console.error('[Navbar] i18n.changeLanguage failed:', err);
+      }
+      try {
+        await updateSetting('baseCurrency', region.currency);
+      } catch (err) {
+        console.error('[Navbar] updateSetting baseCurrency failed:', err);
+      }
+    },
+    [i18n, updateSetting],
+  );
 
   const currentRegion = REGIONS.find((r) => r.code === selectedRegion) || REGIONS[0];
 
@@ -193,7 +263,7 @@ export default function Navbar() {
             onMouseEnter={(e) => { e.currentTarget.style.color = '#dcddde'; }}
             onMouseLeave={(e) => { e.currentTarget.style.color = activeSection === 'download' ? activeLinkColor : '#888891'; }}
           >
-            Download
+            {t('nav.landing.download', 'Download')}
           </a>
           <a
             href="#pricing"
@@ -204,37 +274,7 @@ export default function Navbar() {
             onMouseEnter={(e) => { e.currentTarget.style.color = '#dcddde'; }}
             onMouseLeave={(e) => { e.currentTarget.style.color = activeSection === 'pricing' ? activeLinkColor : '#888891'; }}
           >
-            Pricing
-          </a>
-          {/* Sync link with "Soon" badge and tooltip */}
-          <a
-            href="#sync"
-            className="kerdos-sync-link"
-            style={{
-              ...navLinkStyle,
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 6,
-              color: activeSection === 'sync' ? activeLinkColor : '#888891',
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = '#dcddde'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = activeSection === 'sync' ? activeLinkColor : '#888891'; }}
-          >
-            Sync
-            <span
-              style={{
-                fontSize: 10,
-                textTransform: 'uppercase',
-                background: 'rgba(201,151,42,0.15)',
-                color: '#c9972a',
-                padding: '1px 5px',
-                borderRadius: 3,
-                fontWeight: 600,
-                lineHeight: '16px',
-              }}
-            >
-              Soon
-            </span>
+            {t('nav.landing.pricing', 'Pricing')}
           </a>
           <a
             href="https://github.com/kerdos"
@@ -244,18 +284,7 @@ export default function Navbar() {
             onMouseEnter={(e) => { e.currentTarget.style.color = '#dcddde'; }}
             onMouseLeave={(e) => { e.currentTarget.style.color = '#888891'; }}
           >
-            Open Source
-          </a>
-          <a
-            href="#enterprise"
-            style={{
-              ...navLinkStyle,
-              color: activeSection === 'enterprise' ? activeLinkColor : '#888891',
-            }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = '#dcddde'; }}
-            onMouseLeave={(e) => { e.currentTarget.style.color = activeSection === 'enterprise' ? activeLinkColor : '#888891'; }}
-          >
-            Enterprise
+            {t('nav.landing.openSource', 'Open Source')}
           </a>
         </div>
 
@@ -329,7 +358,7 @@ export default function Navbar() {
                     fontWeight: 600,
                   }}
                 >
-                  Currency &amp; Region
+                  {t('nav.region.header', 'Currency & Region')}
                 </div>
                 {REGIONS.map((r) => {
                   const isActive = r.code === selectedRegion;
@@ -364,7 +393,7 @@ export default function Navbar() {
                       }}
                     >
                       <span style={{ fontSize: 16 }}>{r.flag}</span>
-                      <span style={{ flex: 1 }}>{r.label}</span>
+                      <span style={{ flex: 1 }}>{t(r.labelKey)}</span>
                       <span
                         style={{
                           fontFamily: 'monospace',
@@ -389,7 +418,7 @@ export default function Navbar() {
             onMouseEnter={(e) => { e.currentTarget.style.color = '#dcddde'; }}
             onMouseLeave={(e) => { e.currentTarget.style.color = '#888891'; }}
           >
-            Community
+            {t('nav.landing.community', 'Community')}
           </a>
           <a
             href="https://github.com/kerdos"
@@ -399,7 +428,31 @@ export default function Navbar() {
             onMouseEnter={(e) => { e.currentTarget.style.color = '#dcddde'; }}
             onMouseLeave={(e) => { e.currentTarget.style.color = '#888891'; }}
           >
-            GitHub
+            {t('nav.landing.github', 'GitHub')}
+          </a>
+
+          {/* Try Demo — primary CTA in the Navbar (T-W4-01) */}
+          <a
+            href="#/demo"
+            style={{
+              marginLeft: 8,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              padding: '6px 14px',
+              borderRadius: 6,
+              background: '#c9972a',
+              color: '#0a0d12',
+              fontSize: 13,
+              fontWeight: 600,
+              textDecoration: 'none',
+              transition: 'background 0.2s',
+              whiteSpace: 'nowrap',
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.background = '#e0ab35'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.background = '#c9972a'; }}
+          >
+            {t('nav.landing.tryDemo', 'Try Demo')}
           </a>
         </div>
 
@@ -475,48 +528,42 @@ export default function Navbar() {
             borderTop: '1px solid #1e1e1e',
           }}
         >
-          <a href="#download" style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }} onClick={() => setMenuOpen(false)}>Download</a>
-          <a href="#pricing" style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }} onClick={() => setMenuOpen(false)}>Pricing</a>
-          <a href="#sync" style={{ ...navLinkStyle, display: 'flex', alignItems: 'center', gap: 6, padding: '10px 10px' }} onClick={() => setMenuOpen(false)}>
-            Sync
-            <span style={{ fontSize: 10, textTransform: 'uppercase', background: 'rgba(201,151,42,0.15)', color: '#c9972a', padding: '1px 5px', borderRadius: 3, fontWeight: 600 }}>Soon</span>
+          <a
+            href="#/demo"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              padding: '10px 14px',
+              borderRadius: 6,
+              background: '#c9972a',
+              color: '#0a0d12',
+              fontSize: 14,
+              fontWeight: 600,
+              textDecoration: 'none',
+              margin: '4px 0 8px',
+              width: 'fit-content',
+            }}
+            onClick={() => setMenuOpen(false)}
+          >
+            {t('nav.landing.tryDemo', 'Try Demo')}
           </a>
-          <a href="https://github.com/kerdos" target="_blank" rel="noopener noreferrer" style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }}>Open Source</a>
-          <a href="#enterprise" style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }} onClick={() => setMenuOpen(false)}>Enterprise</a>
+          <a href="#download" style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }} onClick={() => setMenuOpen(false)}>{t('nav.landing.download', 'Download')}</a>
+          <a href="#pricing" style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }} onClick={() => setMenuOpen(false)}>{t('nav.landing.pricing', 'Pricing')}</a>
+          <a href="https://github.com/kerdos" target="_blank" rel="noopener noreferrer" style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }}>{t('nav.landing.openSource', 'Open Source')}</a>
           <div style={{ height: 1, background: '#1e1e1e', margin: '8px 0' }} />
-          <a href="https://community.kerdos.app" target="_blank" rel="noopener noreferrer" style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }}>Community</a>
-          <a href="https://github.com/kerdos" target="_blank" rel="noopener noreferrer" style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }}>GitHub</a>
+          <a href="https://community.kerdos.app" target="_blank" rel="noopener noreferrer" style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }}>{t('nav.landing.community', 'Community')}</a>
+          <a href="https://github.com/kerdos" target="_blank" rel="noopener noreferrer" style={{ ...navLinkStyle, display: 'block', padding: '10px 10px' }}>{t('nav.landing.github', 'GitHub')}</a>
         </div>
       )}
 
-      {/* Responsive styles + Sync tooltip */}
+      {/* Responsive styles */}
       <style>{`
         @media (max-width: 768px) {
           .kerdos-nav-links { display: none !important; }
           .kerdos-nav-tools { display: none !important; }
           .kerdos-mobile-hamburger { display: flex !important; }
           .kerdos-mobile-menu { display: flex !important; }
-        }
-        .kerdos-sync-link::after {
-          content: 'End-to-end encrypted sync coming in v2.0';
-          position: absolute;
-          top: calc(100% + 8px);
-          left: 50%;
-          transform: translateX(-50%);
-          background: #1e1f22;
-          border: 1px solid #303033;
-          color: #dcddde;
-          font-size: 12px;
-          border-radius: 5px;
-          padding: 6px 10px;
-          white-space: nowrap;
-          pointer-events: none;
-          opacity: 0;
-          transition: opacity 0.2s;
-          z-index: 1002;
-        }
-        .kerdos-sync-link:hover::after {
-          opacity: 1;
         }
       `}</style>
     </nav>

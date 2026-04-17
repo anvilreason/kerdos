@@ -1,10 +1,10 @@
 {
-  "name": "WealthLens",
-  "short_name": "WealthLens",
-  "description": "Local-first asset tracking PWA",
+  "name": "Kerdos",
+  "short_name": "Kerdos",
+  "description": "Free, local-first asset tracker. Real-time prices, zero signup.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#16171d",
-  "theme_color": "#16171d",
+  "background_color": "#0d0d0d",
+  "theme_color": "#c9972a",
   "icons": []
 }

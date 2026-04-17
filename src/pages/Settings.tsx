@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/dialog";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Switch } from "@/components/ui/switch";
 import { db } from "@/db";
 import { Download, Upload, Trash2 } from "lucide-react";
 
@@ -85,7 +86,7 @@ export default function Settings() {
     const json = exportToJSON({ assets, snapshots });
     downloadFile(
       json,
-      `wealthlens-full-export-${formatDate(new Date())}.json`,
+      `kerdos-full-export-${formatDate(new Date())}.json`,
       "application/json",
     );
   }
@@ -248,6 +249,103 @@ export default function Settings() {
               value={settings.snapshotTime}
               onChange={(e) => updateSetting("snapshotTime", e.target.value)}
             />
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Data & Market (polling) */}
+      <Card>
+        <CardHeader>
+          <CardTitle>{t("settings.data.title")}</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-5">
+          {/* Poll interval */}
+          <div className="flex items-center justify-between">
+            <Label>{t("settings.data.pollInterval.label")}</Label>
+            <Select
+              value={String(settings.pollIntervalSec)}
+              onValueChange={(v) => {
+                const n = Number(v);
+                if (n === 30 || n === 60 || n === 300) {
+                  updateSetting("pollIntervalSec", n);
+                }
+              }}
+            >
+              <SelectTrigger className="w-32">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="30">
+                  {t("settings.data.pollInterval.30s")}
+                </SelectItem>
+                <SelectItem value="60">
+                  {t("settings.data.pollInterval.1min")}
+                </SelectItem>
+                <SelectItem value="300">
+                  {t("settings.data.pollInterval.5min")}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <Separator />
+
+          {/* Poll only when market open */}
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1">
+              <Label htmlFor="poll-only-market-open">
+                {t("settings.data.pollOnlyMarketOpen.label")}
+              </Label>
+              <p className="mt-1 text-xs text-muted-foreground">
+                {t("settings.data.pollOnlyMarketOpen.help")}
+              </p>
+            </div>
+            <Switch
+              id="poll-only-market-open"
+              checked={settings.pollOnlyWhenMarketOpen}
+              onCheckedChange={(checked) =>
+                updateSetting("pollOnlyWhenMarketOpen", checked)
+              }
+            />
+          </div>
+
+          <Separator />
+
+          {/* Intraday snapshot cadence (W2-04) */}
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex-1">
+              <Label>{t("settings.data.snapshotInterval.label")}</Label>
+              <p className="mt-1 text-xs text-muted-foreground">
+                {t("settings.data.snapshotInterval.help")}
+              </p>
+            </div>
+            <Select
+              value={String(settings.snapshotIntervalMin)}
+              onValueChange={(v) => {
+                const n = Number(v);
+                if (n === 5 || n === 15 || n === 30 || n === 60) {
+                  updateSetting("snapshotIntervalMin", n);
+                }
+              }}
+            >
+              <SelectTrigger className="w-32">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="5">
+                  {t("settings.data.snapshotInterval.5min")}
+                </SelectItem>
+                <SelectItem value="15">
+                  {t("settings.data.snapshotInterval.15min")}
+                </SelectItem>
+                <SelectItem value="30">
+                  {t("settings.data.snapshotInterval.30min")}
+                </SelectItem>
+                <SelectItem value="60">
+                  {t("settings.data.snapshotInterval.1hr")}
+                </SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </CardContent>
       </Card>

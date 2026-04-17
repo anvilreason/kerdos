@@ -1,33 +1,58 @@
+import { useTranslation } from 'react-i18next';
 import { useInView } from '../../../utils/animations';
 
 interface PillarData {
   icon: string;
-  headline: string;
-  body: string;
-  cta?: { label: string; href: string };
+  headlineKey: string;
+  headlineFallback: string;
+  bodyKey: string;
+  bodyFallback: string;
+  cta?: {
+    labelKey: string;
+    labelFallback: string;
+    href: string;
+  };
 }
 
 const pillars: PillarData[] = [
   {
     icon: '\uD83D\uDD12',
-    headline: 'Private by default.',
-    body: 'Kerdos stores all your financial data locally on your device. No account required, no server sync, not even us can see it. Your wealth is yours.',
-    cta: { label: 'Learn more about privacy \u2192', href: '#' },
+    headlineKey: 'landing.pillars.items.private.headline',
+    headlineFallback: 'Private by default.',
+    bodyKey: 'landing.pillars.items.private.body',
+    bodyFallback:
+      'Kerdos stores all your financial data locally on your device. No account required, no server sync, not even us can see it. Your wealth is yours.',
+    cta: {
+      labelKey: 'landing.pillars.items.private.cta',
+      labelFallback: 'Learn more about privacy \u2192',
+      href: '#',
+    },
   },
   {
     icon: '\uD83D\uDCCA',
-    headline: 'Every asset, one view.',
-    body: 'Stocks, crypto, gold, real estate, cash \u2014 Kerdos tracks everything. If you own it, Kerdos can value it. Real-time prices where available, manual entry where not.',
+    headlineKey: 'landing.pillars.items.coverage.headline',
+    headlineFallback: 'Every asset, one view.',
+    bodyKey: 'landing.pillars.items.coverage.body',
+    bodyFallback:
+      'Stocks, crypto, gold, real estate, cash \u2014 Kerdos tracks everything. If you own it, Kerdos can value it. Real-time prices where available, manual entry where not.',
   },
   {
     icon: '\uD83D\uDDC4\uFE0F',
-    headline: 'Your data survives.',
-    body: 'Kerdos exports to open JSON and CSV formats. No proprietary lock-in. Your net worth history belongs to you, forever \u2014 even if we shut down tomorrow.',
-    cta: { label: 'Download now \u2192', href: '#' },
+    headlineKey: 'landing.pillars.items.portability.headline',
+    headlineFallback: 'Your data survives.',
+    bodyKey: 'landing.pillars.items.portability.body',
+    bodyFallback:
+      'Kerdos exports to open JSON and CSV formats. No proprietary lock-in. Your net worth history belongs to you, forever \u2014 even if we shut down tomorrow.',
+    cta: {
+      labelKey: 'landing.pillars.items.portability.cta',
+      labelFallback: 'Download now \u2192',
+      href: '#',
+    },
   },
 ];
 
 function PillarCard({ pillar, delay }: { pillar: PillarData; delay: number }) {
+  const { t } = useTranslation();
   const { ref, inView } = useInView(0.1);
 
   return (
@@ -56,7 +81,7 @@ function PillarCard({ pillar, delay }: { pillar: PillarData; delay: number }) {
           lineHeight: 1.3,
         }}
       >
-        {pillar.headline}
+        {t(pillar.headlineKey, pillar.headlineFallback)}
       </h3>
       <p
         style={{
@@ -67,7 +92,7 @@ function PillarCard({ pillar, delay }: { pillar: PillarData; delay: number }) {
           lineHeight: 1.6,
         }}
       >
-        {pillar.body}
+        {t(pillar.bodyKey, pillar.bodyFallback)}
       </p>
       {pillar.cta && (
         <a
@@ -90,7 +115,7 @@ function PillarCard({ pillar, delay }: { pillar: PillarData; delay: number }) {
             e.currentTarget.style.textDecoration = 'none';
           }}
         >
-          {pillar.cta.label}
+          {t(pillar.cta.labelKey, pillar.cta.labelFallback)}
         </a>
       )}
     </div>
@@ -116,7 +141,7 @@ export default function Pillars() {
         }}
       >
         {pillars.map((pillar, i) => (
-          <PillarCard key={i} pillar={pillar} delay={i * 0.15} />
+          <PillarCard key={pillar.headlineKey} pillar={pillar} delay={i * 0.15} />
         ))}
       </div>
     </section>

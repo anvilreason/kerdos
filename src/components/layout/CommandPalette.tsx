@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Asset } from "@/types/asset";
 import type { PriceResult } from "@/types/price";
@@ -96,7 +96,8 @@ export default function CommandPalette({
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
 
-  // Reset state when opening
+  // Reset state when opening. Downgraded rule (set-state-in-effect) — this
+  // is the standard controlled-dialog reset pattern; parent owns `open`.
   useEffect(() => {
     if (open) {
       setQuery("");
@@ -246,7 +247,10 @@ export default function CommandPalette({
       )
     : assetItems;
 
-  const allItems = [...filteredPages, ...filteredActions, ...filteredAssets];
+  const allItems = useMemo(
+    () => [...filteredPages, ...filteredActions, ...filteredAssets],
+    [filteredPages, filteredActions, filteredAssets],
+  );
 
   // Scroll selected into view
   useEffect(() => {
@@ -284,22 +288,19 @@ export default function CommandPalette({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [open, allItems, selectedIndex, onClose]);
 
-  // Reset index when query changes
+  // Reset index when query changes.
   useEffect(() => {
     setSelectedIndex(0);
   }, [query]);
 
   if (!open) return null;
 
-  let currentIdx = 0;
-
   function renderSection(
     title: string,
     items: CommandItem[],
+    startIdx: number,
   ): React.ReactNode {
     if (items.length === 0) return null;
-    const startIdx = currentIdx;
-    currentIdx += items.length;
 
     return (
       <div key={title}>
@@ -498,9 +499,17 @@ export default function CommandPalette({
             </div>
           ) : (
             <>
-              {renderSection("RECENT", filteredPages)}
-              {renderSection("ACTIONS", filteredActions)}
-              {renderSection("ASSETS", filteredAssets)}
+              {renderSection("RECENT", filteredPages, 0)}
+              {renderSection(
+                "ACTIONS",
+                filteredActions,
+                filteredPages.length,
+              )}
+              {renderSection(
+                "ASSETS",
+                filteredAssets,
+                filteredPages.length + filteredActions.length,
+              )}
             </>
           )}
         </div>

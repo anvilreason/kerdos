@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "WealthLens"
+    "name": "Kerdos"
   },
   "nav": {
     "dashboard": "Dashboard",
@@ -9,7 +9,24 @@
     "settings": "Settings",
     "openMenu": "Open menu",
     "navigation": "Navigation",
-    "refreshPrices": "Refresh prices"
+    "refreshPrices": "Refresh prices",
+    "landing": {
+      "tryDemo": "Try Demo",
+      "download": "Download",
+      "pricing": "Pricing",
+      "openSource": "Open Source",
+      "community": "Community",
+      "github": "GitHub"
+    },
+    "region": {
+      "header": "Language & Region",
+      "us": "United States",
+      "cn": "Mainland China",
+      "hk": "Hong Kong SAR",
+      "jp": "Japan",
+      "gb": "United Kingdom",
+      "eu": "Europe"
+    }
   },
   "dashboard": {
     "totalNetWorth": "Total Net Worth",
@@ -21,7 +38,106 @@
     "noAssetsToDisplay": "No assets to display.",
     "topAssets": "Top Assets",
     "noAssetsYet": "No assets yet. Add your first asset to get started.",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "chart": {
+      "range": {
+        "1d": "1D",
+        "1w": "1W",
+        "1m": "1M",
+        "3m": "3M",
+        "1y": "1Y",
+        "all": "ALL"
+      },
+      "emptyIntraday": "No intraday data yet. Snapshots are taken every 15 min during market hours.",
+      "compare": {
+        "label": "Compare with",
+        "none": "None",
+        "sp500": "S&P 500",
+        "csi300": "CSI 300",
+        "btc": "Bitcoin"
+      },
+      "benchmark": {
+        "unavailable": "Benchmark unavailable",
+        "cached": "Cached"
+      },
+      "drawdown": {
+        "label": "Max drawdown period"
+      }
+    },
+    "returns": {
+      "title": "Returns & Risk",
+      "annualized": "Annualized over {{days}} days",
+      "since": "Since {{date}}",
+      "twr": {
+        "label": "TWR (annualized)",
+        "help": "Your investing skill, independent of when you added or withdrew money."
+      },
+      "xirr": {
+        "label": "XIRR",
+        "help": "The real return after accounting for when you put money in and took it out."
+      },
+      "maxDD": {
+        "label": "Max Drawdown",
+        "help": "The worst peak-to-trough drop your portfolio has ever taken.",
+        "durationDays": "{{days}} days",
+        "recoveredOn": "recovered on {{date}}",
+        "notRecovered": "not yet recovered"
+      }
+    },
+    "holdings": {
+      "title": "Holdings",
+      "columns": {
+        "name": "Asset",
+        "ticker": "Ticker",
+        "quantity": "Qty",
+        "cost": "Cost",
+        "price": "Price",
+        "value": "Value",
+        "pnl": "P/L",
+        "return": "Return",
+        "dayChange": "Today"
+      },
+      "showAll": "Show all ({{count}} more)",
+      "showLess": "Show less",
+      "empty": "No assets yet. Add one to see your holdings."
+    },
+    "currencyExposure": {
+      "title": "Currency Exposure",
+      "help": "Shows how much of your wealth is denominated in each currency."
+    }
+  },
+  "transactions": {
+    "title": "Cash Flow",
+    "add": "Add Cash Flow",
+    "edit": "Edit",
+    "delete": "Delete",
+    "actions": "Actions",
+    "date": "Date",
+    "typeLabel": "Type",
+    "amount": "Amount",
+    "currency": "Currency",
+    "note": "Note",
+    "notePlaceholder": "Optional note, e.g. payroll, bonus, annual top-up...",
+    "helper": "Record when you moved cash into or out of the portfolio. These flows power TWR and XIRR on the dashboard.",
+    "empty": {
+      "title": "No cash flows recorded yet",
+      "hint": "Add your first deposit or withdrawal to make TWR and XIRR meaningful."
+    },
+    "type": {
+      "deposit": "Deposit",
+      "withdraw": "Withdraw"
+    },
+    "form": {
+      "addTitle": "Add Cash Flow",
+      "editTitle": "Edit Cash Flow",
+      "description": "Deposits add money to the portfolio; withdrawals remove money. Amount is always a positive number."
+    },
+    "errors": {
+      "dateRequired": "Date is required",
+      "amountPositive": "Amount must be a positive number"
+    },
+    "deleteTitle": "Delete Cash Flow",
+    "deleteConfirm": "Are you sure you want to delete this cash flow record? This cannot be undone."
   },
   "assetTypes": {
     "us_stock": "US Stock",
@@ -129,12 +245,345 @@
     "clearConfirmMessage": "Are you sure you want to delete all data? This will remove all assets, snapshots, and settings. This action cannot be undone.",
     "cancel": "Cancel",
     "deleteEverything": "Delete Everything",
-    "loading": "Loading settings..."
+    "loading": "Loading settings...",
+    "data": {
+      "title": "Data & Market",
+      "pollInterval": {
+        "label": "Refresh Cadence",
+        "30s": "30 seconds",
+        "1min": "1 minute",
+        "5min": "5 minutes"
+      },
+      "pollOnlyMarketOpen": {
+        "label": "Only refresh during market hours",
+        "help": "When off, prices are refreshed on the chosen cadence even when markets are closed, which consumes more API quota."
+      },
+      "snapshotInterval": {
+        "label": "Intraday snapshot cadence",
+        "help": "Creates a snapshot during market hours. Older than 90 days are pruned automatically.",
+        "5min": "5 minutes",
+        "15min": "15 minutes",
+        "30min": "30 minutes",
+        "1hr": "1 hour"
+      }
+    }
   },
   "common": {
     "cancel": "Cancel",
     "save": "Save",
     "delete": "Delete",
     "loading": "Loading..."
+  },
+  "demoMode": {
+    "entering": "Loading demo data...",
+    "overwriteConfirm": "You have {{count}} real asset(s) saved. Entering demo mode will wipe them. Continue?",
+    "exitBanner": {
+      "text": "You're exploring a demo portfolio. Data isn't real.",
+      "button": "Exit demo"
+    }
+  },
+  "onboarding": {
+    "welcome": "Welcome to Kerdos",
+    "subtitle": "Let's add your first asset — it only takes a minute.",
+    "back": "Back",
+    "next": "Next",
+    "create": "Create my portfolio",
+    "tryDemo": "I just want to explore first (load sample data)",
+    "tryDemoTitle": "Load sample portfolio?",
+    "tryDemoConfirm": "This will load 20 sample assets so you can explore the app. You can exit demo anytime — your own data won't be affected.",
+    "tryDemoConfirmBtn": "Load sample data",
+    "step1": {
+      "title": "What would you like to add first?",
+      "subtitle": "Pick the category that best matches your asset. You can always add more later."
+    },
+    "step2": {
+      "title": "Tell us about it",
+      "tickerPrompt": "Search ticker or company name",
+      "nameLabel": "Name",
+      "namePlaceholder": "e.g. Primary residence, Savings account",
+      "quantityLabel": "Quantity / shares held",
+      "priceLabel": "Cost price (optional)",
+      "manualPriceLabel": "Current value per unit"
+    },
+    "step3": {
+      "title": "Looks good?",
+      "subtitle": "Review and confirm to create your portfolio.",
+      "approxValue": "Approximate value",
+      "addAnother": "Add another asset after this"
+    },
+    "types": {
+      "usStock": "US Stock",
+      "usStockHint": "AAPL, NVDA, ETFs",
+      "crypto": "Crypto",
+      "cryptoHint": "BTC, ETH, SOL",
+      "cash": "Cash",
+      "cashHint": "USD, CNY, EUR…",
+      "realEstate": "Real Estate",
+      "realEstateHint": "Home, property",
+      "gold": "Gold",
+      "goldHint": "Bars, coins, XAU",
+      "other": "Other",
+      "otherHint": "Anything else"
+    },
+    "errors": {
+      "nameRequired": "Name is required",
+      "quantityInvalid": "Quantity must be a positive number",
+      "priceInvalid": "Price must be a valid number",
+      "submitFailed": "Couldn't create asset. Please try again."
+    }
+  },
+  "landing": {
+    "download": {
+      "tag": "Download",
+      "title": "Run Kerdos natively on your machine.",
+      "subtitle": "Same app, offline-first, menu-bar friendly. Your data stays in a local SQLite file instead of the browser.",
+      "cta": "Download",
+      "comingSoon": "Coming soon",
+      "sourceNote": "Prefer the source? Clone the repo or grab a tagged .tar.gz.",
+      "allReleases": "All releases",
+      "unsignedWarn": "Builds aren't code-signed yet. macOS may say \"damaged / unverified\" — right-click the app and pick \"Open\" to bypass Gatekeeper for now.",
+      "macArm": {
+        "title": "macOS (Apple Silicon)",
+        "subtitle": ".dmg · M1/M2/M3/M4"
+      },
+      "macIntel": {
+        "title": "macOS (Intel)",
+        "subtitle": ".dmg · x64"
+      },
+      "windows": {
+        "title": "Windows",
+        "subtitle": ".msi · Windows 10+"
+      },
+      "linux": {
+        "title": "Linux",
+        "subtitle": ".AppImage · Any distro"
+      }
+    },
+    "hero": {
+      "title": "Your wealth, recalculated every minute.",
+      "subtitle": "The free, local-first tracker. Stocks, crypto, cash, and more — all computed live on your device. No signup. No cloud. No tracking.",
+      "ctaTryDemo": "Try Demo",
+      "ctaStartFresh": "Start Fresh",
+      "ctaDownload": "Download for Mac / Windows / Linux",
+      "caption": "Real demo data. Runs fully offline. Your device, your numbers.",
+      "miniDash": {
+        "live": "Live",
+        "totalNetWorth": "Total Net Worth"
+      }
+    },
+    "privacy": {
+      "title": "Your data never leaves your device.",
+      "subtitle": "Three ways to check, not just words on a page.",
+      "where": {
+        "title": "Where your data lives",
+        "body": "Stored in IndexedDB on your device. Open DevTools → Application → IndexedDB to see it yourself."
+      },
+      "transmit": {
+        "title": "What we receive",
+        "body": "Nothing. We don't run servers that see your holdings. Market price requests go to public APIs only."
+      },
+      "verify": {
+        "title": "How you verify",
+        "body": "Open source. Audit the code yourself, or read the one-page privacy policy.",
+        "link": "Read the privacy policy →"
+      },
+      "githubPrefix": "Source on GitHub:"
+    },
+    "pillars": {
+      "items": {
+        "private": {
+          "headline": "Private by default.",
+          "body": "Kerdos stores all your financial data locally on your device. No account required, no server sync, not even us can see it. Your wealth is yours.",
+          "cta": "Learn more about privacy →"
+        },
+        "coverage": {
+          "headline": "Every asset, one view.",
+          "body": "Stocks, crypto, gold, real estate, cash — Kerdos tracks everything. If you own it, Kerdos can value it. Real-time prices where available, manual entry where not."
+        },
+        "portability": {
+          "headline": "Your data survives.",
+          "body": "Kerdos exports to open JSON and CSV formats. No proprietary lock-in. Your net worth history belongs to you, forever — even if we shut down tomorrow.",
+          "cta": "Download now →"
+        }
+      }
+    },
+    "features": {
+      "titleLine1": "From a single stock to a global portfolio,",
+      "titleLine2": "Kerdos has you covered.",
+      "subtitle": "Add your assets once. Watch your net worth update in real time — stocks, crypto, gold, forex, and anything you own manually.",
+      "demoBadge": "Live demo — NVDA, AAPL, BTC, ETH + Bay Area home + Tesla · Prices shown in USD",
+      "caption": "Prices simulate real market volatility — updated every 2.5 seconds. Click any asset to see details.",
+      "cards": {
+        "live": {
+          "headline": "Live prices, always fresh",
+          "body": "US stocks via Yahoo Finance, crypto via CoinGecko, gold via Metals.live — all updated automatically."
+        },
+        "calc": {
+          "headline": "Instant calculation",
+          "body": "Add your holdings once. Kerdos multiplies quantity × live price × exchange rate and keeps your total current."
+        },
+        "history": {
+          "headline": "Automatic history",
+          "body": "Kerdos silently saves a daily snapshot of your net worth. Watch it compound over time without any effort."
+        }
+      }
+    },
+    "priceHistory": {
+      "tag": "Price Intelligence",
+      "titleLine1": "Five data sources.",
+      "titleLine2": "One price feed.",
+      "body1": "Kerdos connects directly to free financial APIs from your browser — no intermediary server, no data leakage. Every price call goes from your device straight to the source.",
+      "body2": "When a source is unavailable, Kerdos falls back automatically. Prices stay fresh. Your net worth stays accurate.",
+      "cta": "See how prices work →",
+      "engineLabel": "Engine",
+      "netWorthLabel": "Net Worth",
+      "sources": {
+        "usStocks": { "asset": "US Stocks / ETF" },
+        "aShares": { "asset": "A-Shares" },
+        "crypto": { "asset": "Crypto" },
+        "forex": { "asset": "Forex" },
+        "metals": { "asset": "Gold / Silver" },
+        "realEstate": { "asset": "Real Estate" }
+      },
+      "intervals": {
+        "min5": "5 min",
+        "min15": "15 min",
+        "min30": "30 min",
+        "hr1": "1 hour",
+        "onUpdate": "On update"
+      }
+    },
+    "coverage": {
+      "tag": "Universal Coverage",
+      "titleLine1": "Financial assets.",
+      "titleLine2": "Physical assets.",
+      "titleLine3": "Everything.",
+      "body1": "Most net worth tools only track what they can see via bank APIs. Kerdos is different — you enter what you own, and we value it. Your Shanghai apartment, your gold coins, your BTC cold wallet: all in one number.",
+      "body2": "For assets without live prices — real estate, vehicles, art — Kerdos lets you manually set a value. We'll remind you when it's getting stale, so your net worth stays honest.",
+      "types": {
+        "usStocks": "US Stocks",
+        "aShares": "A-Shares",
+        "etf": "ETF",
+        "crypto": "Crypto",
+        "gold": "Gold",
+        "forex": "Forex",
+        "realEstate": "Real Estate",
+        "vehicle": "Vehicle",
+        "cash": "Cash",
+        "other": "Other"
+      },
+      "stats": {
+        "types": "asset types — fully supported",
+        "currencies": "currencies — auto-converted to base",
+        "sources": "price sources — all free, no API key needed",
+        "uploaded": "uploaded — to any server, ever"
+      }
+    },
+    "social": {
+      "title": "Built in public. Used by builders.",
+      "stats": {
+        "stars": "GitHub stars",
+        "forks": "Forks",
+        "downloads": "Downloads",
+        "phLaunch": "Product Hunt launch day"
+      },
+      "reviews": {
+        "mint": {
+          "quote": "Finally, a Mint replacement that doesn't require me to hand over my bank login. This is exactly what I've been looking for since Mint shut down.",
+          "author": "@pgfarmer, Hacker News"
+        },
+        "multi": {
+          "quote": "I have assets in 4 countries across 3 currencies. Kerdos is the first tool that handles all of it, completely offline. The multi-currency conversion alone is worth it.",
+          "author": "@crypto_nomad_88, Product Hunt"
+        },
+        "fire": {
+          "quote": "The FIRE community has needed this. Open source, local-first, tracks everything — real estate included. And the dev is responsive on GitHub.",
+          "author": "@retire_at_40, Reddit r/financialindependence"
+        }
+      },
+      "links": {
+        "github": "GitHub",
+        "ph": "Product Hunt",
+        "hn": "Hacker News",
+        "reddit": "Reddit r/FIRE"
+      }
+    },
+    "finalCta": {
+      "titleLine1": "Track your wealth.",
+      "titleLine2": "Keep it private.",
+      "subtitle": "Kerdos is free, open source, and runs entirely on your device. No account. No cloud. No compromise.",
+      "downloadBtn": "Download for macOS",
+      "githubBtn": "View on GitHub ↗",
+      "platforms": "macOS · Windows · Linux · Browser PWA",
+      "license": "MIT License · Open Source Forever"
+    },
+    "footer": {
+      "tagline": "Track every asset you own. Runs entirely on your device.",
+      "etymology": "κέρδος — Ancient Greek for “gain”",
+      "copyright": "© 2025 Kerdos",
+      "licenseLine": "MIT License",
+      "columns": {
+        "product": "Product",
+        "resources": "Resources",
+        "community": "Community"
+      },
+      "product": {
+        "features": "Features",
+        "pricing": "Pricing",
+        "desktop": "Desktop App",
+        "pro": "Pro",
+        "changelog": "Changelog",
+        "roadmap": "Roadmap"
+      },
+      "resources": {
+        "docs": "Documentation",
+        "github": "GitHub",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "api": "API Reference"
+      },
+      "community": {
+        "discussions": "GitHub Discussions",
+        "ph": "Product Hunt",
+        "reddit": "Reddit (r/FIRE)",
+        "twitter": "Twitter/X"
+      }
+    }
+  },
+  "privacy": {
+    "back": "Back to home",
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated",
+    "intro": "Kerdos is a local-first net-worth tracker. The short version: we don't run servers that store your financial data, and the only things that leave your device are anonymous price lookups to public market APIs.",
+    "collect": {
+      "title": "1. What we collect",
+      "body": "Nothing. Your assets, snapshots, and settings are stored in IndexedDB on your device. We have no account system, no analytics that tie to you, and no telemetry of your holdings."
+    },
+    "transmit": {
+      "title": "2. What we transmit",
+      "body": "When you hold assets that have live prices (stocks, crypto, gold, FX), Kerdos fetches quotes directly from public market APIs. These requests contain only the ticker symbols — never your quantities, cost basis, or net worth.",
+      "sources": {
+        "stocks": "US stocks / ETFs — Yahoo Finance",
+        "crypto": "Crypto — CoinGecko",
+        "fx": "FX rates — ExchangeRate-API",
+        "gold": "Gold / metals — Metals.live"
+      }
+    },
+    "rights": {
+      "title": "3. Your rights",
+      "body": "You can delete everything at any time by clearing the Kerdos IndexedDB in your browser (DevTools → Application → IndexedDB → WealthLensDB → delete) or by using Settings → Clear All Data inside the app. There is no server copy to request deletion for, because there is no server copy."
+    },
+    "thirdParties": {
+      "title": "4. Third parties",
+      "body": "The public market APIs listed above receive only ticker symbols. Their individual privacy terms govern what they log. Kerdos does not embed third-party analytics (no Google Analytics, no Mixpanel, no Segment) on the app itself."
+    },
+    "openSource": {
+      "title": "5. Open source",
+      "body": "The entire Kerdos codebase is open source under the MIT license. You can audit exactly what data leaves your device — or build your own version."
+    },
+    "contact": {
+      "title": "6. Contact",
+      "body": "Questions, concerns, or something we missed? Open an issue on GitHub. We'll answer publicly."
+    }
   }
 }

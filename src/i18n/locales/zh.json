@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "WealthLens"
+    "name": "Kerdos"
   },
   "nav": {
     "dashboard": "仪表盘",
@@ -9,7 +9,24 @@
     "settings": "设置",
     "openMenu": "打开菜单",
     "navigation": "导航",
-    "refreshPrices": "刷新价格"
+    "refreshPrices": "刷新价格",
+    "landing": {
+      "tryDemo": "体验 Demo",
+      "download": "下载",
+      "pricing": "定价",
+      "openSource": "开源",
+      "community": "社区",
+      "github": "GitHub"
+    },
+    "region": {
+      "header": "语言与地区",
+      "us": "美国",
+      "cn": "中国大陆",
+      "hk": "香港",
+      "jp": "日本",
+      "gb": "英国",
+      "eu": "欧洲"
+    }
   },
   "dashboard": {
     "totalNetWorth": "总净值",
@@ -21,7 +38,106 @@
     "noAssetsToDisplay": "暂无可显示的资产。",
     "topAssets": "主要资产",
     "noAssetsYet": "暂无资产。添加您的第一项资产以开始使用。",
-    "loading": "加载中..."
+    "loading": "加载中...",
+    "chart": {
+      "range": {
+        "1d": "1日",
+        "1w": "1周",
+        "1m": "1月",
+        "3m": "3月",
+        "1y": "1年",
+        "all": "全部"
+      },
+      "emptyIntraday": "暂无日内数据。开市时段每 15 分钟记录一次快照。",
+      "compare": {
+        "label": "对比基准",
+        "none": "无",
+        "sp500": "S&P 500",
+        "csi300": "沪深300",
+        "btc": "比特币"
+      },
+      "benchmark": {
+        "unavailable": "基准不可用",
+        "cached": "缓存数据"
+      },
+      "drawdown": {
+        "label": "最大回撤区间"
+      }
+    },
+    "returns": {
+      "title": "收益与风险",
+      "annualized": "{{days}} 天的年化数据",
+      "since": "自 {{date}} 起",
+      "twr": {
+        "label": "TWR（年化）",
+        "help": "你的投资表现如何，与资金进出时点无关。"
+      },
+      "xirr": {
+        "label": "XIRR",
+        "help": "考虑资金进出时点后，你实际赚了多少（年化）。"
+      },
+      "maxDD": {
+        "label": "最大回撤",
+        "help": "从最高点到最低点，组合跌得最狠的一次。",
+        "durationDays": "{{days}} 天",
+        "recoveredOn": "已于 {{date}} 恢复",
+        "notRecovered": "尚未恢复"
+      }
+    },
+    "holdings": {
+      "title": "持仓明细",
+      "columns": {
+        "name": "资产",
+        "ticker": "代码",
+        "quantity": "数量",
+        "cost": "成本价",
+        "price": "现价",
+        "value": "市值",
+        "pnl": "盈亏",
+        "return": "收益率",
+        "dayChange": "今日"
+      },
+      "showAll": "展开全部（还有 {{count}} 条）",
+      "showLess": "收起",
+      "empty": "还没有资产。添加一个即可看到持仓。"
+    },
+    "currencyExposure": {
+      "title": "币种敞口",
+      "help": "显示你的财富以何种币种计价的分布。"
+    }
+  },
+  "transactions": {
+    "title": "现金流",
+    "add": "添加现金流",
+    "edit": "编辑",
+    "delete": "删除",
+    "actions": "操作",
+    "date": "日期",
+    "typeLabel": "类型",
+    "amount": "金额",
+    "currency": "币种",
+    "note": "备注",
+    "notePlaceholder": "可选备注，如 工资、奖金、年度加仓…",
+    "helper": "记录你把钱投入或取出组合的时点。这些数据会用于仪表盘上的 TWR 与 XIRR 计算。",
+    "empty": {
+      "title": "还没有现金流记录",
+      "hint": "添加第一笔存入或取出，让 TWR 和 XIRR 变得有意义。"
+    },
+    "type": {
+      "deposit": "存入",
+      "withdraw": "取出"
+    },
+    "form": {
+      "addTitle": "添加现金流",
+      "editTitle": "编辑现金流",
+      "description": "「存入」表示把钱投入组合，「取出」表示把钱取出组合。金额始终为正数。"
+    },
+    "errors": {
+      "dateRequired": "日期为必填项",
+      "amountPositive": "金额必须为正数"
+    },
+    "deleteTitle": "删除现金流",
+    "deleteConfirm": "确定要删除这条现金流记录吗？此操作无法撤销。"
   },
   "assetTypes": {
     "us_stock": "美股",
@@ -129,12 +245,345 @@
     "clearConfirmMessage": "确定要删除所有数据吗？这将移除所有资产、快照和设置。此操作无法撤销。",
     "cancel": "取消",
     "deleteEverything": "删除所有内容",
-    "loading": "正在加载设置..."
+    "loading": "正在加载设置...",
+    "data": {
+      "title": "数据与行情",
+      "pollInterval": {
+        "label": "轮询频率",
+        "30s": "30 秒",
+        "1min": "1 分钟",
+        "5min": "5 分钟"
+      },
+      "pollOnlyMarketOpen": {
+        "label": "仅在开市时段刷新",
+        "help": "关闭后非开市也会按周期刷新，会消耗更多 API 请求额度。"
+      },
+      "snapshotInterval": {
+        "label": "日内快照频率",
+        "help": "开市时段自动记录快照，超过 90 天的记录将自动清理。",
+        "5min": "5 分钟",
+        "15min": "15 分钟",
+        "30min": "30 分钟",
+        "1hr": "1 小时"
+      }
+    }
   },
   "common": {
     "cancel": "取消",
     "save": "保存",
     "delete": "删除",
     "loading": "加载中..."
+  },
+  "demoMode": {
+    "entering": "正在加载演示数据...",
+    "overwriteConfirm": "你有 {{count}} 项真实资产数据。进入演示模式会清空它们，确定继续？",
+    "exitBanner": {
+      "text": "正在体验演示数据，并非真实资产。",
+      "button": "退出演示"
+    }
+  },
+  "onboarding": {
+    "welcome": "欢迎使用 Kerdos",
+    "subtitle": "让我们添加你的第一笔资产 —— 只要一分钟。",
+    "back": "返回",
+    "next": "下一步",
+    "create": "创建我的组合",
+    "tryDemo": "先看看演示数据（加载示例组合）",
+    "tryDemoTitle": "加载示例组合？",
+    "tryDemoConfirm": "这将加载 20 项示例资产以便你体验。你可以随时退出演示，你自己的数据不会受到影响。",
+    "tryDemoConfirmBtn": "加载示例数据",
+    "step1": {
+      "title": "先添加哪一类资产？",
+      "subtitle": "选择最贴近你持仓的类别。后续可以继续添加其他类型。"
+    },
+    "step2": {
+      "title": "填写基本信息",
+      "tickerPrompt": "搜索代码或公司名称",
+      "nameLabel": "名称",
+      "namePlaceholder": "如：主力自住房、储蓄账户",
+      "quantityLabel": "数量 / 持有份额",
+      "priceLabel": "成本价（可选）",
+      "manualPriceLabel": "每单位当前估值"
+    },
+    "step3": {
+      "title": "确认一下？",
+      "subtitle": "核对信息后即可创建你的组合。",
+      "approxValue": "估算价值",
+      "addAnother": "创建后继续添加另一笔"
+    },
+    "types": {
+      "usStock": "美股",
+      "usStockHint": "AAPL、NVDA、ETF",
+      "crypto": "加密货币",
+      "cryptoHint": "BTC、ETH、SOL",
+      "cash": "现金",
+      "cashHint": "USD、CNY、EUR…",
+      "realEstate": "房产",
+      "realEstateHint": "住宅、地产",
+      "gold": "黄金",
+      "goldHint": "金条、金币、XAU",
+      "other": "其他",
+      "otherHint": "其他任何资产"
+    },
+    "errors": {
+      "nameRequired": "名称为必填项",
+      "quantityInvalid": "数量必须为正数",
+      "priceInvalid": "价格必须为有效数字",
+      "submitFailed": "创建资产失败，请重试。"
+    }
+  },
+  "landing": {
+    "download": {
+      "tag": "下载",
+      "title": "在你自己的电脑上原生运行 Kerdos。",
+      "subtitle": "同一个应用，离线优先，支持菜单栏常驻。数据存在本地 SQLite 文件里，不走浏览器。",
+      "cta": "下载",
+      "comingSoon": "即将推出",
+      "sourceNote": "想要源码？克隆仓库或下载带 tag 的 .tar.gz。",
+      "allReleases": "所有版本",
+      "unsignedWarn": "当前构建暂未做代码签名。macOS 可能提示「已损坏 / 无法验证」—— 右键应用选「打开」即可绕过 Gatekeeper。",
+      "macArm": {
+        "title": "macOS（Apple Silicon）",
+        "subtitle": ".dmg · M1/M2/M3/M4"
+      },
+      "macIntel": {
+        "title": "macOS（Intel）",
+        "subtitle": ".dmg · x64"
+      },
+      "windows": {
+        "title": "Windows",
+        "subtitle": ".msi · Windows 10 及以上"
+      },
+      "linux": {
+        "title": "Linux",
+        "subtitle": ".AppImage · 任意发行版"
+      }
+    },
+    "hero": {
+      "title": "你的资产，每分钟重新计算一次。",
+      "subtitle": "免费、本地优先的资产追踪工具。股票、加密货币、现金等等——全部在你自己的设备上实时计算。无需注册，不走云端，不做追踪。",
+      "ctaTryDemo": "体验演示",
+      "ctaStartFresh": "从零开始",
+      "ctaDownload": "下载（Mac / Windows / Linux）",
+      "caption": "真实的演示数据，完全离线运行。你的设备，你的数字。",
+      "miniDash": {
+        "live": "实时",
+        "totalNetWorth": "总净值"
+      }
+    },
+    "privacy": {
+      "title": "你的数据不会离开你的设备。",
+      "subtitle": "不是一句空话——我们提供三种可自己验证的方式。",
+      "where": {
+        "title": "数据存在哪里",
+        "body": "存储在你设备上的 IndexedDB 里。打开开发者工具 → Application → IndexedDB，就能亲眼看到。"
+      },
+      "transmit": {
+        "title": "我们收到什么",
+        "body": "什么都没有。我们没有接收你持仓数据的服务器；行情请求只会发往公开的市场 API。"
+      },
+      "verify": {
+        "title": "如何自行核验",
+        "body": "完全开源。自己审计代码，或者阅读一页纸的隐私政策。",
+        "link": "查看隐私政策 →"
+      },
+      "githubPrefix": "GitHub 源码："
+    },
+    "pillars": {
+      "items": {
+        "private": {
+          "headline": "隐私，默认开启。",
+          "body": "Kerdos 把你的财务数据全部存在你自己的设备上。无需注册，不走云端同步，连我们自己都看不见。你的财富，只属于你。",
+          "cta": "了解更多隐私保护 →"
+        },
+        "coverage": {
+          "headline": "所有资产，一屏看全。",
+          "body": "股票、加密货币、黄金、房产、现金——只要你有的，Kerdos 都能记。有实时行情的自动取价，没有的手动填就行。"
+        },
+        "portability": {
+          "headline": "你的数据，带得走。",
+          "body": "Kerdos 支持导出通用的 JSON 和 CSV 格式，不锁死在某个专有格式里。哪怕有一天我们不做了，你的净资产历史照样完整留在你手上。",
+          "cta": "立即下载 →"
+        }
+      }
+    },
+    "features": {
+      "titleLine1": "从单只股票到全球组合，",
+      "titleLine2": "Kerdos 都帮你看住。",
+      "subtitle": "资产录入一次，净资产就会实时更新——股票、加密货币、黄金、外汇，还有你手动填写的任何东西。",
+      "demoBadge": "实时演示 — NVDA、AAPL、BTC、ETH + 湾区房产 + 特斯拉 · 金额以美元显示",
+      "caption": "行情模拟真实波动，每 2.5 秒刷新一次。点击任意资产查看详情。",
+      "cards": {
+        "live": {
+          "headline": "实时行情，持续更新",
+          "body": "美股走 Yahoo Finance，加密货币走 CoinGecko，黄金走 Metals.live——全部自动获取，不用你操心。"
+        },
+        "calc": {
+          "headline": "即时计算",
+          "body": "录入一次持仓，Kerdos 自动按「数量 × 实时价格 × 汇率」算好总额，始终保持最新。"
+        },
+        "history": {
+          "headline": "自动记录历史",
+          "body": "Kerdos 会在后台默默保存每日净资产快照。日积月累，你就能看到财富曲线自己长出来。"
+        }
+      }
+    },
+    "priceHistory": {
+      "tag": "行情智能",
+      "titleLine1": "五路行情数据源，",
+      "titleLine2": "汇成一条价格流。",
+      "body1": "Kerdos 直接从你的浏览器连接公开的金融 API——中间没有任何服务器，也不会造成数据泄露。每一次价格请求都是从你的设备直达数据源。",
+      "body2": "当某一路数据源不可用时，Kerdos 会自动切换备份源。价格保持新鲜，净资产持续准确。",
+      "cta": "看看价格是怎么来的 →",
+      "engineLabel": "引擎",
+      "netWorthLabel": "净资产",
+      "sources": {
+        "usStocks": { "asset": "美股 / ETF" },
+        "aShares": { "asset": "A 股" },
+        "crypto": { "asset": "加密货币" },
+        "forex": { "asset": "外汇" },
+        "metals": { "asset": "黄金 / 白银" },
+        "realEstate": { "asset": "房产" }
+      },
+      "intervals": {
+        "min5": "5 分钟",
+        "min15": "15 分钟",
+        "min30": "30 分钟",
+        "hr1": "1 小时",
+        "onUpdate": "更新时"
+      }
+    },
+    "coverage": {
+      "tag": "全面覆盖",
+      "titleLine1": "金融资产，",
+      "titleLine2": "实物资产，",
+      "titleLine3": "通通在内。",
+      "body1": "大多数净资产工具只能追踪银行 API 能看到的东西。Kerdos 不一样——你告诉它你拥有什么，它来算值多少。上海的房子、金币、BTC 冷钱包，全部合成一个数。",
+      "body2": "对于房产、车辆、艺术品这类没有实时行情的资产，你可以手动设置估值。Kerdos 会在估值过期时主动提醒，让你的净资产始终诚实可靠。",
+      "types": {
+        "usStocks": "美股",
+        "aShares": "A 股",
+        "etf": "ETF",
+        "crypto": "加密货币",
+        "gold": "黄金",
+        "forex": "外汇",
+        "realEstate": "房产",
+        "vehicle": "车辆",
+        "cash": "现金",
+        "other": "其他"
+      },
+      "stats": {
+        "types": "种资产类型 —— 全部原生支持",
+        "currencies": "种货币 —— 自动换算为基准币",
+        "sources": "路价格数据源 —— 全免费，无需 API key",
+        "uploaded": "字节上传 —— 不往任何服务器发"
+      }
+    },
+    "social": {
+      "title": "公开开发，被开发者们用着。",
+      "stats": {
+        "stars": "GitHub 星标",
+        "forks": "Fork",
+        "downloads": "下载次数",
+        "phLaunch": "Product Hunt 首发日"
+      },
+      "reviews": {
+        "mint": {
+          "quote": "终于有一款 Mint 的替代品，不用把银行登录密码交出去了。Mint 关停之后我一直在找这样的工具。",
+          "author": "@pgfarmer，Hacker News"
+        },
+        "multi": {
+          "quote": "我在 4 个国家、3 种货币里都有资产。Kerdos 是第一个能全部搞定、还完全离线的工具。光是多币种自动换算就值回票价。",
+          "author": "@crypto_nomad_88，Product Hunt"
+        },
+        "fire": {
+          "quote": "FIRE 圈早就该有这样的东西了。开源、本地优先，什么都能记——连房产都算上。作者在 GitHub 上响应也很积极。",
+          "author": "@retire_at_40，Reddit r/financialindependence"
+        }
+      },
+      "links": {
+        "github": "GitHub",
+        "ph": "Product Hunt",
+        "hn": "Hacker News",
+        "reddit": "Reddit r/FIRE"
+      }
+    },
+    "finalCta": {
+      "titleLine1": "管好你的财富，",
+      "titleLine2": "牢牢守住隐私。",
+      "subtitle": "Kerdos 免费、开源，完全运行在你自己的设备上。无需账号，不走云端，不做任何妥协。",
+      "downloadBtn": "下载 macOS 版",
+      "githubBtn": "在 GitHub 查看 ↗",
+      "platforms": "macOS · Windows · Linux · 浏览器 PWA",
+      "license": "MIT 许可证 · 永久开源"
+    },
+    "footer": {
+      "tagline": "记录你拥有的每一项资产，全部在你自己的设备上运行。",
+      "etymology": "κέρδος —— 古希腊语中的「收益」",
+      "copyright": "© 2025 Kerdos",
+      "licenseLine": "MIT 许可证",
+      "columns": {
+        "product": "产品",
+        "resources": "资源",
+        "community": "社区"
+      },
+      "product": {
+        "features": "功能",
+        "pricing": "价格",
+        "desktop": "桌面应用",
+        "pro": "Pro 版",
+        "changelog": "更新日志",
+        "roadmap": "路线图"
+      },
+      "resources": {
+        "docs": "文档",
+        "github": "GitHub",
+        "privacy": "隐私政策",
+        "terms": "服务条款",
+        "api": "API 参考"
+      },
+      "community": {
+        "discussions": "GitHub 讨论区",
+        "ph": "Product Hunt",
+        "reddit": "Reddit (r/FIRE)",
+        "twitter": "Twitter/X"
+      }
+    }
+  },
+  "privacy": {
+    "back": "返回首页",
+    "title": "隐私政策",
+    "lastUpdated": "最后更新",
+    "intro": "Kerdos 是一款本地优先的净资产追踪工具。一句话总结：我们没有存储你财务数据的服务器，离开你设备的只有向公开市场 API 发起的、匿名的价格查询请求。",
+    "collect": {
+      "title": "1. 我们收集什么",
+      "body": "不收集任何内容。你的资产、快照和设置都保存在你设备上的 IndexedDB 中。我们没有账号体系，没有能关联到你的分析追踪，也不会回传你的持仓。"
+    },
+    "transmit": {
+      "title": "2. 我们传输什么",
+      "body": "当你持有有实时行情的资产（股票、加密货币、黄金、外汇）时，Kerdos 会直接从你的浏览器向公开的市场 API 请求报价。这些请求只包含代码标识，不包含你的数量、成本或净资产。",
+      "sources": {
+        "stocks": "美股 / ETF —— Yahoo Finance",
+        "crypto": "加密货币 —— CoinGecko",
+        "fx": "汇率 —— ExchangeRate-API",
+        "gold": "黄金 / 金属 —— Metals.live"
+      }
+    },
+    "rights": {
+      "title": "3. 你的权利",
+      "body": "你可以随时清除全部数据：在浏览器中清除 Kerdos 的 IndexedDB（开发者工具 → Application → IndexedDB → WealthLensDB → 删除），或在应用内使用「设置 → 清除全部数据」。不存在需要「请求删除」的服务器副本，因为本来就没有服务器副本。"
+    },
+    "thirdParties": {
+      "title": "4. 第三方",
+      "body": "上文提到的市场 API 仅会收到代码标识。它们如何记录请求，由各自的隐私条款决定。Kerdos 应用本身不嵌入任何第三方分析工具（没有 Google Analytics、没有 Mixpanel、没有 Segment）。"
+    },
+    "openSource": {
+      "title": "5. 开源",
+      "body": "Kerdos 代码全部以 MIT 协议开源。你可以亲自审查究竟有什么数据离开你的设备——或者基于它自己构建一个版本。"
+    },
+    "contact": {
+      "title": "6. 联系我们",
+      "body": "有问题、疑虑或我们漏掉了什么？欢迎在 GitHub 上开 issue，我们会公开回复。"
+    }
   }
 }
