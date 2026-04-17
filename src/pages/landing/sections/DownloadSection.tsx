@@ -53,7 +53,7 @@ const PLATFORMS: PlatformCard[] = [
     subtitleKey: "landing.download.macIntel.subtitle",
     subtitleFallback: ".dmg · x64",
     href: downloadUrl("Kerdos_2.0.0_x64.dmg"),
-    available: false,
+    available: true,
   },
   {
     id: "windows",
@@ -63,7 +63,7 @@ const PLATFORMS: PlatformCard[] = [
     subtitleKey: "landing.download.windows.subtitle",
     subtitleFallback: ".msi · Windows 10+",
     href: downloadUrl("Kerdos_2.0.0_x64_en-US.msi"),
-    available: false,
+    available: true,
   },
   {
     id: "linux",
@@ -72,8 +72,8 @@ const PLATFORMS: PlatformCard[] = [
     titleFallback: "Linux",
     subtitleKey: "landing.download.linux.subtitle",
     subtitleFallback: ".AppImage · Any distro",
-    href: downloadUrl("kerdos_2.0.0_amd64.AppImage"),
-    available: false,
+    href: downloadUrl("Kerdos_2.0.0_amd64.AppImage"),
+    available: true,
   },
 ];
 
